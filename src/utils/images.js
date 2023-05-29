@@ -1,3 +1,4 @@
-import hero from "../assets/images/hero.jpg"
+import hero from "../assets/images/hero.jpg";
+import react from "../assets/react.svg"
 
-export const images = {hero}
+export const images = {hero, react}
