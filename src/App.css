@@ -1,42 +1,269 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+
+:root{
+    --color-white:#FFFFFF;
+    --color-lightgray:#D7D7D7;
+    --color-gray:#B3BFB6;
+    --color-darkgray:#415256;
+    --color-blue:#1588FC;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    transition: all ease-in-out .3s;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+a{
+    text-decoration: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+ul{
+    list-style: none;
 }
 
-.card {
-  padding: 2em;
+img{
+    width: 100%;
 }
 
-.read-the-docs {
-  color: #888;
+body{
+    color: var(--color-darkgray);
+}
+
+/* REUSABLES */
+
+.flex{
+    display: flex;
+}
+
+.flex-col{
+    flex-direction: column;
+}
+
+.text-blue{
+    color: var(--color-blue);
+}
+
+.w-full{
+    width: 100%;
+}
+
+.border{
+    border: 1px solid red;
+}
+
+.main__btn{
+    background-color: var(--color-blue);
+    display: flex;
+    border-radius: 5px;
+    padding: .75rem 1rem;
+    color: var(--color-lightgray);
+    align-items: center;
+    gap: 1rem;
+}
+
+.main__btn div{
+    width: 2rem;
+    height: 2rem;
+    border: 1px solid var(--color-lightgray);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    font-size: .75rem;
+    position: relative;
+}
+
+.main__btn:hover {
+    background-color: var(--color-white);
+    color: var(--color-blue);
+}
+
+.main__btn:hover div{
+    border: 1px solid var(--color-blue);
+}
+
+
+.container{
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 5rem 0;
+}
+
+.section__title{
+    font-size: 2.5rem;
+    color: var(--color-darkgray);
+    position: relative;
+    mix-blend-mode: difference;
+    margin-bottom: 1rem;
+}
+
+.section__desc{
+    font-size: 1.15rem;
+}
+
+
+
+
+
+
+/* HEADER */
+
+header{
+    width: 100%;
+    padding: 1.5rem 1rem;
+    position: absolute;
+}
+
+header>div{
+    width: 50%;
+    font-size: 4rem;
+    color: var(--color-lightgray);
+}
+
+header>nav{
+    width: 50%;
+    padding: 0 5%;
+
+}
+
+header>nav>ul{
+    display: flex;
+    gap: 5%;
+    font-size: 1.25rem;
+}
+
+
+header>nav>ul a{
+    color: var(--color-darkgray);
+}
+
+
+
+/* HERO */
+
+.hero{
+    height: 100vh;
+}
+
+.hero__left,
+.hero__right{
+    width: 50%;
+    height: 100%;
+}
+
+.hero__left img{
+    height: 100%;
+    object-fit: cover;
+    object-position: 0%;
+}
+
+.hero__left{
+    background-color: var(--color-darkgray);
+}
+
+.hero__right{
+    background-color: var(--color-lightgray);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 5%;
+    align-items: flex-start;
+}
+
+.hero__right h1{
+    font-size: 5rem;
+    line-height: 5rem;
+    color: var(--color-blue);
+
+}
+
+.hero__right p{
+    margin-top: 1rem;
+    font-size: 1.15rem;
+    color: var(--color-darkgray);
+    margin-bottom: 2rem;
+}
+
+
+/* SECTION ABOUT */
+
+.about .container{
+    gap: 5%;
+    align-items: center;
+    position: relative;
+}
+
+.about .container::before{
+    content: url(./assets/illustrations/dots.svg);
+    position: absolute;
+    z-index: -1;
+    top: 30%;
+    left: -3%;
+}
+
+.about__left{
+    width: 50%;
+}
+
+.about__right{
+    width: 50%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.about__box{
+    width: 45%;
+    margin-bottom: 3rem;
+    background-color: #4152561b;
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
+
+}
+
+.about__box i{
+    font-size: 2.5rem;
+    color: var(--color-blue);
+}
+
+.about__box h5{
+    font-size: 1.25rem;
+    margin: 1rem 0 1.5rem;
+}
+
+.box__header{
+    align-items: center;
+    gap: 2rem;
+}
+
+/* SECTION 2*/
+
+.section2__left{
+    width: 50%;
+    height: 30rem;
+}
+
+.section2__left img{
+    height: 100%;
+    object-fit: cover;
+}
+
+.section2__right{
+    width: 50%;
+    padding: 0 5%;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;    
+}
+
+.section2__right::before{
+    content: url(./assets/illustrations/dots.svg);
+    position: absolute;
+    z-index: -1;
+    top: 15%;
+    right: 25%;
+}
+
+.section2__right .section__desc{
+    margin-bottom: 2rem;
 }
