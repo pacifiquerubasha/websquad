@@ -2,7 +2,7 @@ import React from 'react';
 import { images } from '../utils/images';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { about, ceo, hero, news, section2, section3 } from '../utils/content';
+import { about, ceo, cta, hero, news, section2, section3, testimonials } from '../utils/content';
 
 function Home(props) {
 
@@ -12,9 +12,7 @@ function Home(props) {
 
         <main>
             <section className="hero flex w-full">
-                <div className="hero__left">
-                    {/* <img src={images.hero} alt="" /> */}
-                </div>
+               
                 <div className="hero__right">
                     <h1 data-aos="fade-down" data-aos-duration="1000">
                        {hero.title}
@@ -28,6 +26,14 @@ function Home(props) {
                         </div>
                     </a>
                 </div>
+
+                <div className="hero__left">
+
+                    <video id="hero__video" autoplay="" muted="" loop="" playsinline="">
+                        <source src={hero.video} type="video/mp4"/>
+                    </video> 
+                </div>
+
             </section>
 
             <section className="about">
@@ -190,15 +196,14 @@ function Home(props) {
 
             <section className="cta">
                 <div className="container flex flex-col">
-                    <p>WHAT ARE YOU WAITING FOR?</p>
-                    <h4>Let's collaborate!</h4>
+                    <p>{cta.question}</p>
+                    <h4>{cta.title}</h4>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                        ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
+                       {cta.desc}
                     </p>  
 
                     <a href="" className='main__btn'>                        
-                        <span>EXPLORE NOW FOR FREE</span>
+                        <span>{cta.cta}</span>
                         <div>
                             <i className='fas fa-arrow-right'></i>
                         </div>
@@ -211,56 +216,33 @@ function Home(props) {
                 <div className="container flex">
                     <div className="testimonials__left">
                         <h3 className='section__title'>
-                            <span>About The Platform</span>
+                            <span>{testimonials.title}</span>
                         </h3>
-                        <p className='section__desc'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora reprehenderit itaque mollitia sequi nisi sit.</p>
+                        <p className='section__desc'>
+                            {testimonials.subtitle}
+                        </p>
                     </div>
                     <div className="testimonials__right flex">
-                        <div className="testimonial flex flex-col">
-                            <img src={images.react} alt="" />
-                            <p>
-                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore deserunt velit dolores, alias ratione quae.
-                            </p>
 
-                            <div>
-                                <h4>John Doe</h4>
-                                <span>CEO - React</span>
-                            </div>
-                        </div>
-                        <div className="testimonial flex flex-col">
-                            <img src={images.react} alt="" />
-                            <p>
-                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore deserunt velit dolores, alias ratione quae.
-                            </p>
+                        {testimonials.testimonials.map((testimonial)=>{
+                            return(
+                                <div className="testimonial flex flex-col">
+                                    <img src={testimonial.image} alt="" />
+                                    <p>
+                                        {testimonial.message}
+                                    </p>
 
-                            <div>
-                                <h4>John Doe</h4>
-                                <span>CEO - React</span>
-                            </div>
-                        </div>
-                        <div className="testimonial flex flex-col">
-                            <img src={images.react} alt="" />
-                            <p>
-                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore deserunt velit dolores, alias ratione quae.
-                            </p>
+                                    <div>
+                                        <h4>{testimonial.name}</h4>
+                                        <span>{testimonial.role}</span>
+                                    </div>
+                                </div>
+                            )
+                        })
 
-                            <div>
-                                <h4>John Doe</h4>
-                                <span>CEO - React</span>
-                            </div>
-                        </div>
+                        }
 
-                        <div className="testimonial flex flex-col">
-                            <img src={images.react} alt="" />
-                            <p>
-                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore deserunt velit dolores, alias ratione quae.
-                            </p>
 
-                            <div>
-                                <h4>John Doe</h4>
-                                <span>CEO - React</span>
-                            </div>
-                        </div>
                     </div>
 
                 </div>

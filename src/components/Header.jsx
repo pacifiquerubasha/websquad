@@ -4,7 +4,7 @@ import { menuItems } from '../utils/content';
 function Header(props) {
     return (
         <header className='flex'>
-            <div className='logo'><span className='text-blue'>Job</span>Metrix</div>
+            <a href='/' className='logo'><span className='text-blue'>Job</span>Metrix</a>
             <nav>
                 <ul className='flex'>
                     {menuItems.map((item)=>{

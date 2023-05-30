@@ -111,14 +111,15 @@ body{
 
 header{
     width: 100%;
-    padding: 1.5rem 1rem;
+    padding: 2.5rem 5% 1.5rem;
     position: absolute;
+    z-index: 999;
 }
 
 .logo{
-    width: 50%;
+    width: 25%;
     font-size: 4rem;
-    color: var(--color-lightgray);
+    color: var(--color-darkgray);
 }
 
 header>nav{
@@ -131,6 +132,8 @@ header>nav>ul{
     display: flex;
     gap: 5%;
     font-size: 1.25rem;
+    height: 100%;
+    align-items: center;
 }
 
 
@@ -144,6 +147,8 @@ header>nav>ul a{
 
 .hero{
     height: 100vh;
+    background-color: var(--color-lightgray);
+
 }
 
 .hero__left,
@@ -159,11 +164,34 @@ header>nav>ul a{
 }
 
 .hero__left{
-    background-color: var(--color-darkgray);
+    /* background-color: var(--color-darkgray); */
+    position: relative;
+    display: flex;
+    align-items: center;
 }
 
+.hero__left::before{
+    content: "";
+    position: absolute;
+    /* z-index: -1; */
+    width: 50%;
+    height: 75%;
+    right: 0;
+    top: 0;
+    background-color: var(--color-blue);
+}
+
+#hero__video{
+    width: 90%;
+    height: 75%;
+    object-fit: cover;
+    position: relative;
+    
+}
+
+
+
 .hero__right{
-    background-color: var(--color-lightgray);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -557,6 +585,10 @@ footer{
     text-align: center;
 }
 
+.footer__top .logo{
+    color: var(--color-lightgray);
+}
+
 .footer__top ul{
     gap: 5rem;
     margin-top: 1rem;
@@ -572,3 +604,296 @@ footer{
     justify-content: space-between;
 }
 
+/* ABOUT US PAGE*/
+
+/* HERO */
+
+header:has(~.main__with__banner) a{
+    color: var(--color-white);
+}
+
+.about__hero{
+    height: 50vh;
+    position: relative;
+}
+
+.hero__image{
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+
+}
+
+.hero__image img{
+    height: 100%;
+    object-fit: cover;
+    object-position: 0% 50%;
+}
+
+.hero__image::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+
+    background: rgba( 65, 82, 86, 0.25 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+.about__hero h1{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    color: var(--color-lightgray);
+    font-size: 4.5rem;
+}
+
+.story__left,
+.story__right{
+    width: 50%;
+    
+}
+
+.story__right{
+    height: 100%;
+}
+
+.story__right img{
+    height: 30rem;
+    object-fit: cover;
+}
+
+.story__left{
+    padding-right: 5%;
+}
+
+.story__left ul{
+    padding-left: 10%;
+    margin-top: 3rem;
+}
+
+.story__left ul li{
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 1rem;
+}
+
+.numbering{
+    width: 3rem;
+    height: 3rem;
+    background-color: var(--color-blue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-lightgray);
+    font-size: 1.5rem;
+    border-radius: 2px;
+}
+
+.story__item--title{
+    font-size: 1.25rem;
+}
+
+/* Services */
+
+.services .container{
+    align-items: center;
+}
+
+.service{
+    width: 70rem;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.service:first-of-type{
+    margin-top: 5rem;
+}
+
+.service>div{
+    width: 50%;
+    height: 20rem;
+    background-color: var(--color-lightgray);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.service>div i{
+    font-size: 3rem;
+    color: var(--color-blue);
+}
+
+.service>div h5{
+    font-size: 2rem;
+    margin: 1rem;
+    color: var(--color-blue);
+}
+
+.service>div p{
+    max-width: 80%;
+}
+
+.service>div img{
+    height: 100%;
+    object-fit: cover;
+}
+
+/* TEAM */
+
+.team .container{
+    align-items: center;
+}
+
+.team__members{
+    gap: 2rem;
+    margin-top: 5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.member{
+    position: relative;
+    width: 20rem;
+    height: 30rem;
+    margin-bottom: 5rem;
+}
+
+.member img{
+    height: 100%;
+    object-fit: cover;
+    border-radius: 3px;
+}
+
+.member__info{
+    position: absolute;
+    bottom: -12%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--color-lightgray);
+    padding: 1rem;
+    border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 75%;
+}
+
+.member__info .socials{
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    padding-bottom: .75rem;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.381);
+    font-size: 1.25rem;
+}
+
+.member__info h5{
+    font-size: 1.15rem;
+    color: var(--color-blue);
+}
+
+/* PARTNERS */
+
+.partners .container{
+    align-items: center;
+}
+
+.partner{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    opacity: .5;
+}
+
+.partners__list{
+    margin-top: 3rem;
+    gap: 2rem;
+    width: 50%;
+    justify-content: space-around;
+    font-weight: 600;
+    font-size: 1.25rem;
+}
+
+.partner img{
+    width: 7rem;
+}
+
+/* CONTACT */
+
+section.contact{
+    height: 50rem;
+    position: relative;
+    background: url(./assets/images/hero.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: 0% 50%;
+    
+}
+
+section.contact img{
+    height: 100%;
+    object-fit: cover;
+
+}
+
+.contact__container{
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background-color: #1588fc7d;
+    display: flex;
+}
+
+
+.contact__container form{
+    background-color: var(--color-white);
+    width: 45rem;
+    max-width: 90%;
+    margin: auto;
+    border-radius: 10px;
+    padding: 2rem;
+}
+
+.form__group:nth-of-type(1){
+    margin-top: 3rem;
+}
+
+.form__group{
+    margin-bottom: 2rem;
+}
+
+.form__group label{
+    font-size: 1.25rem;
+}
+
+.form__group input,
+.form__group textarea{
+    padding: .5rem 1rem 1rem;
+    font-size: 1.25rem;
+    border: none;
+    border-bottom: 1px solid var(--color-gray);
+}
+
+button[type="submit"]{
+    padding: 1rem 1.5rem;
+    background-color: var(--color-blue);
+    border: none;
+    border-radius: 5px;
+    font-size: 1.15rem;
+    color: var(--color-white);
+}

@@ -1,8 +1,7 @@
 import { images } from "./images";
 
 export const  menuItems = [
-    { name: "Home", link: "/" },
-    { name: "About", link: "/" },
+    { name: "About", link: "/about" },
     { name: "Services", link: "/" },
     { name: "Products", link: "/" },
     { name: "Contact", link: "/" }
@@ -16,7 +15,8 @@ export const  menuItems = [
 export const hero = {
     title:"Lorem, ipsum dolor sit amet.",
     subtitle:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora reprehenderit itaque mollitia sequi nisi sit.",
-    cta:"EXPLORE NOW FOR FREE"
+    cta:"EXPLORE NOW FOR FREE",
+    video:images.heroVideo
 }
 
 
@@ -155,6 +155,55 @@ export const news = {
             date:"12/12/2020",
             link:"/",
             icon:"fas fa-user"           
+        }
+    ]
+}
+
+
+/**
+ * CTA CONTENT
+ */
+
+export const cta = {
+    question:"WHAT ARE YOU WAITING FOR?",
+    title:"Let's collaborate!",
+    desc:` Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+    ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.`,
+    cta:"EXPLORE NOW FOR FREE"
+}
+
+
+/**
+ * CTA CONTENT
+ */
+
+export const testimonials = {
+    title:"About The Platform",
+    subtitle:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora reprehenderit itaque mollitia sequi nisi sit.",
+    testimonials:[
+        {
+            image:images.react,
+            name:"John Doe",
+            role:"CEO - JobMetrix",
+            message:"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore deserunt velit dolores, alias ratione quae."
+        },
+        {
+            image:images.react,
+            name:"John Doe",
+            role:"CEO - JobMetrix",
+            message:"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore deserunt velit dolores, alias ratione quae."
+        },
+        {
+            image:images.react,
+            name:"John Doe",
+            role:"CEO - JobMetrix",
+            message:"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore deserunt velit dolores, alias ratione quae."
+        },
+        {
+            image:images.react,
+            name:"John Doex",
+            role:"CEO - JobMetrix",
+            message:"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore deserunt velit dolores, alias ratione quae."
         }
     ]
 }
