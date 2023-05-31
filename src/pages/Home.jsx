@@ -3,6 +3,8 @@ import { images } from '../utils/images';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { about, ceo, cta, hero, news, section2, section3, testimonials } from '../utils/content';
+import FixedContact from '../components/FixedContact';
+import NewsTemplate from '../components/NewsTemplate';
 
 function Home(props) {
 
@@ -80,7 +82,7 @@ function Home(props) {
             <section className='section2'>
                 <div className="container flex">
                     <div className="section2__left" data-aos="fade-left" data-aos-duration="1000">
-                        <img src={section2.image} alt="" />
+                        <img src={section2.image} alt="" loading='lazy'/>
                     </div>
                     <div className="section2__right flex flex-col" data-aos="fade-right" data-aos-duration="1000">
                         <h3 className='section__title'>
@@ -163,23 +165,7 @@ function Home(props) {
                     <div className="news__grid flex">
                         {news.newsItems.map((item)=>{
                             return(
-                                <div className="news__box">
-                                    <div className="news__img w-full">
-                                        <img src={item.image} alt="" />
-                                    </div>
-                                    <div className="news__content">
-                                        <div className="news__icon">
-                                            <i className={item.icon}></i>
-                                        </div>
-                                        <h4>{item.author}</h4>
-                                        <h5>{item.title}</h5>
-                                        <p>{item.content}</p>
-                                        
-                                        <a href={item.link} className="news__btn">
-                                            Read More
-                                        </a>
-                                    </div>
-                                </div>
+                                <NewsTemplate item={item}/>
                             )
                         })
 
@@ -227,7 +213,7 @@ function Home(props) {
                         {testimonials.testimonials.map((testimonial)=>{
                             return(
                                 <div className="testimonial flex flex-col">
-                                    <img src={testimonial.image} alt="" />
+                                    <img src={testimonial.image} alt="" loading='lazy'/>
                                     <p>
                                         {testimonial.message}
                                     </p>
@@ -249,6 +235,8 @@ function Home(props) {
             </section>
         </main>
 
+        
+        <FixedContact/>      
         <Footer/>
         </>
         

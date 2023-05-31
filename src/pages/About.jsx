@@ -2,6 +2,8 @@ import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { images } from '../utils/images';
+import FixedContact from '../components/FixedContact';
+import Hero from '../components/Hero';
 
 function About(props) {
     return (
@@ -10,14 +12,8 @@ function About(props) {
         <Header/>       
         
         <main className='main__with__banner'>
-            <section className="about__hero">
-                <div className="hero__image">
-                    <img src={images.hero} alt="" />
-                </div>
-                
-                <h1>About Us</h1>
-
-            </section>
+            
+            <Hero image={images.hero} title="About Us" />
 
             <section className="story">
                 <div className="container flex">
@@ -61,7 +57,7 @@ function About(props) {
                     </div>
 
                     <div className="story__right">
-                        <img src={images.hero} alt="" />
+                        <img src={images.hero} alt="" loading='lazy'/>
                     </div>
                 </div>
             </section>
@@ -80,12 +76,12 @@ function About(props) {
 
                         </div>
                         <div className='service__image'>
-                            <img src={images.hero} alt=''/>
+                            <img src={images.hero} alt='' loading='lazy'/>
                         </div>
                     </div>
                     <div className="service flex">
                         <div className='service__image'>
-                            <img src={images.hero} alt=''/>
+                            <img src={images.hero} alt='' loading='lazy'/>
                         </div>
                         <div>
                             <i className='fas fa-user'></i>
@@ -102,7 +98,7 @@ function About(props) {
 
                         </div>
                         <div className='service__image'>
-                            <img src={images.hero} alt=''/>
+                            <img src={images.hero} alt='' loading='lazy'/>
                         </div>
                     </div>
                     
@@ -119,7 +115,33 @@ function About(props) {
 
                     <div className="team__members flex">
                         <div className="member">
-                            <img src={images.hero} alt="" />
+                            <img src={images.hero} alt="" loading='lazy'/>
+                            <div className="member__info">
+                                <div className="socials">
+                                    <i className='fab fa-facebook'></i>
+                                    <i className='fab fa-twitter'></i>
+                                    <i className='fab fa-instagram'></i>
+                                    <i className='fab fa-github'></i>
+                                </div>
+                                <h5>Member Name</h5>
+                                <p>Member Role</p>
+                            </div>
+                        </div>
+                        <div className="member">
+                            <img src={images.hero} alt="" loading='lazy'/>
+                            <div className="member__info">
+                                <div className="socials">
+                                    <i className='fab fa-facebook'></i>
+                                    <i className='fab fa-twitter'></i>
+                                    <i className='fab fa-instagram'></i>
+                                    <i className='fab fa-github'></i>
+                                </div>
+                                <h5>Member Name</h5>
+                                <p>Member Role</p>
+                            </div>
+                        </div>
+                        <div className="member">
+                            <img src={images.hero} alt="" loading='lazy'/>
                             <div className="member__info">
                                 <div className="socials">
                                     <i className='fab fa-facebook'></i>
@@ -145,7 +167,7 @@ function About(props) {
                             </div>
                         </div>
                         <div className="member">
-                            <img src={images.hero} alt="" />
+                            <img src={images.hero} alt="" loading='lazy'/>
                             <div className="member__info">
                                 <div className="socials">
                                     <i className='fab fa-facebook'></i>
@@ -158,33 +180,7 @@ function About(props) {
                             </div>
                         </div>
                         <div className="member">
-                            <img src={images.hero} alt="" />
-                            <div className="member__info">
-                                <div className="socials">
-                                    <i className='fab fa-facebook'></i>
-                                    <i className='fab fa-twitter'></i>
-                                    <i className='fab fa-instagram'></i>
-                                    <i className='fab fa-github'></i>
-                                </div>
-                                <h5>Member Name</h5>
-                                <p>Member Role</p>
-                            </div>
-                        </div>
-                        <div className="member">
-                            <img src={images.hero} alt="" />
-                            <div className="member__info">
-                                <div className="socials">
-                                    <i className='fab fa-facebook'></i>
-                                    <i className='fab fa-twitter'></i>
-                                    <i className='fab fa-instagram'></i>
-                                    <i className='fab fa-github'></i>
-                                </div>
-                                <h5>Member Name</h5>
-                                <p>Member Role</p>
-                            </div>
-                        </div>
-                        <div className="member">
-                            <img src={images.hero} alt="" />
+                            <img src={images.hero} alt="" loading='lazy'/>
                             <div className="member__info">
                                 <div className="socials">
                                     <i className='fab fa-facebook'></i>
@@ -209,15 +205,15 @@ function About(props) {
 
                     <div className="partners__list flex">
                         <div className="partner">
-                            <img src={images.react} alt="" />
+                            <img src={images.react} alt="" loading='lazy'/>
                             <span>ReactJs</span>
                         </div>
                         <div className="partner">
-                            <img src={images.react} alt="" />
+                            <img src={images.react} alt="" loading='lazy'/>
                             <span>ReactJs</span>
                         </div>
                         <div className="partner">
-                            <img src={images.react} alt="" />
+                            <img src={images.react} alt="" loading='lazy'/>
                             <span>ReactJs</span>
                         </div>
                         
@@ -259,6 +255,9 @@ function About(props) {
             </section>
 
         </main>
+
+
+        <FixedContact/>
 
         <Footer/>
             

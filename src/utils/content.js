@@ -2,9 +2,8 @@ import { images } from "./images";
 
 export const  menuItems = [
     { name: "About", link: "/about" },
-    { name: "Services", link: "/" },
-    { name: "Products", link: "/" },
-    { name: "Contact", link: "/" }
+    { name: "News", link: "/news" },
+    { name: "Contact", link: "/contact" }
 ];
 
 
@@ -126,7 +125,7 @@ export const news = {
             title:"News Title",
             content:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora reprehenderit itaque mollitia sequi nisi sit.",
             date:"12/12/2020",
-            link:"/",
+            link:"/news/7GmT2p-DEkL-f6R0tW9i1x-bLs4P8hA3T",
             icon:"fas fa-user"           
         },
         {
@@ -135,7 +134,7 @@ export const news = {
             title:"News Title",
             content:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora reprehenderit itaque mollitia sequi nisi sit.",
             date:"12/12/2020",
-            link:"/",
+            link:"/news/Xn3o5M-jzHU-2KdCv4QY7l-yRqO1AeD3I",
             icon:"fas fa-user"           
         },
         {
@@ -144,7 +143,7 @@ export const news = {
             title:"News Title",
             content:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora reprehenderit itaque mollitia sequi nisi sit.",
             date:"12/12/2020",
-            link:"/",
+            link:"/news/NlV6gJ-rIyB-d9HcF8RvYk-tZ2iS4wP0Q",
             icon:"fas fa-user"           
         },
         {
@@ -153,7 +152,7 @@ export const news = {
             title:"News Title",
             content:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora reprehenderit itaque mollitia sequi nisi sit.",
             date:"12/12/2020",
-            link:"/",
+            link:"/news/e5NjL2-Fqo7-AaBbCcDdEe-FfGgHhIiJj",
             icon:"fas fa-user"           
         }
     ]
