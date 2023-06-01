@@ -30,6 +30,18 @@ body{
     color: var(--color-darkgray);
 }
 
+::-webkit-scrollbar {
+    width: 12px;               
+}
+::-webkit-scrollbar-track {
+    background: var(--color-lightgray);        
+}
+::-webkit-scrollbar-thumb {
+    background-color: var(--color-blue);   
+    border-radius: 20px;       
+    border: 3px solid var(--color-lightgray);  
+  }
+
 /* REUSABLES */
 
 .flex{
@@ -142,6 +154,95 @@ body{
 .section__desc{
     font-size: 1.15rem;
 }
+
+
+/* LOADER */
+
+.lds-roller {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+  }
+  .lds-roller div {
+    animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    transform-origin: 40px 40px;
+  }
+  .lds-roller div:after {
+    content: " ";
+    display: block;
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--color-blue);
+    margin: -4px 0 0 -4px;
+  }
+  .lds-roller div:nth-child(1) {
+    animation-delay: -0.036s;
+  }
+  .lds-roller div:nth-child(1):after {
+    top: 63px;
+    left: 63px;
+  }
+  .lds-roller div:nth-child(2) {
+    animation-delay: -0.072s;
+  }
+  .lds-roller div:nth-child(2):after {
+    top: 68px;
+    left: 56px;
+  }
+  .lds-roller div:nth-child(3) {
+    animation-delay: -0.108s;
+  }
+  .lds-roller div:nth-child(3):after {
+    top: 71px;
+    left: 48px;
+  }
+  .lds-roller div:nth-child(4) {
+    animation-delay: -0.144s;
+  }
+  .lds-roller div:nth-child(4):after {
+    top: 72px;
+    left: 40px;
+  }
+  .lds-roller div:nth-child(5) {
+    animation-delay: -0.18s;
+  }
+  .lds-roller div:nth-child(5):after {
+    top: 71px;
+    left: 32px;
+  }
+  .lds-roller div:nth-child(6) {
+    animation-delay: -0.216s;
+  }
+  .lds-roller div:nth-child(6):after {
+    top: 68px;
+    left: 24px;
+  }
+  .lds-roller div:nth-child(7) {
+    animation-delay: -0.252s;
+  }
+  .lds-roller div:nth-child(7):after {
+    top: 63px;
+    left: 17px;
+  }
+  .lds-roller div:nth-child(8) {
+    animation-delay: -0.288s;
+  }
+  .lds-roller div:nth-child(8):after {
+    top: 56px;
+    left: 12px;
+  }
+  @keyframes lds-roller {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
 
 
 
@@ -718,6 +819,11 @@ header:has(~.main__with__banner) a{
     color: var(--color-blue);
 }
 
+.hero__content>p{
+    font-size: 1.25rem;
+    color: var(--color-white);
+}
+
 .story__left,
 .story__right{
     width: 50%;
@@ -1052,3 +1158,217 @@ button[type="submit"]{
     color: var(--color-blue);
     margin-top: 2rem;
 }
+
+/* JOB SEARCH*/
+
+.jobs .about__hero{
+    height: 60vh;
+}
+
+.search__form{
+    width: 50rem;
+    max-width: 90%;
+    margin-top: 5rem;
+    display: flex;
+    gap: 5%;
+}
+
+.search__form input{
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    border: 1px solid var(--color-darkgray);
+    font-size: 1.25rem;
+}
+
+.search__form input:focus{
+    outline: none;
+    border: 1px solid var(--color-blue);
+}
+
+.search__form input:first-child{
+    width: 75%;
+}
+
+.search__form input[type="submit"]{
+    background-color: #1588FC;
+    color: var(--color-white);
+    cursor: pointer;
+}
+
+
+
+.jobs__list h3{
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 2.5rem;
+}
+
+.filter__item{
+    color: var(--color-darkgray);
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    font-size: 1.15rem;
+}
+
+.jobs__list .container{
+    gap: 5%;
+    justify-content: space-between;
+}
+
+.jobs__container{
+    width: 70%;
+}
+
+.filters{
+    width: 25%;
+}
+
+.filters__list{
+    height: 21rem;
+    overflow-y: auto;
+}
+
+.filters>input{
+    width: 75%;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border: 1px solid var(--color-gray);
+    border-radius: 10px;
+}
+
+.job__item{
+    width: 75%;
+    padding: 1.5rem;
+    align-items: center;
+    gap: 5%;
+    justify-content: space-between;
+    border-radius: 10px;
+    background-color:#41525618;
+    margin-bottom: 2rem;
+}
+
+.job__item>a{
+    color: var(--color-blue);
+    padding: .5rem 2rem;
+    border-radius: 5px;
+    border: 1px solid var(--color-blue);
+}
+
+.job__content__top{
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: .5rem;
+}
+
+.job__content__bottom{
+    gap: 1rem;
+    align-items: center;
+}
+
+.job__item__left{
+    align-items: center;
+    gap: 5%;
+    width: 75%;
+}
+
+.job__content__top h5{
+    font-size: 1.25rem;
+}
+
+.tags{
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.job__content p{
+    background-color:#1588fc37;
+    padding: .25rem;
+    border-radius: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.job__content__top p{
+    background-color: rgba(0, 255, 0, 0.154);
+}
+
+.job__content__bottom{
+    font-size: 1.15rem;
+}
+
+.job__content__bottom>div{
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+}
+
+.job__content .time{
+    color: var(--color-darkgray);
+}
+
+.job__image{
+    width: 5rem;
+}
+
+
+.current__filters{
+    margin-bottom: 1rem;
+    gap: 1rem;
+    width: 75%;
+    flex-wrap: wrap;
+    color: var(--color-blue);
+    font-weight: 700;
+}
+
+.apply__filters{
+    width: 75%;
+    padding: 5px;
+    background-color: var(--color-blue);
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    color: var(--color-white);
+    cursor: pointer;
+}
+
+.job__list__container ul {
+    display: flex;
+    justify-content: space-between;
+    width: 75%;
+    align-items: center;
+}
+
+
+
+.job__list__container ul a {
+    text-transform: capitalize;
+    cursor: pointer;
+}
+
+.job__list__container ul li{
+    transition: all ease-in-out .3s;
+}
+
+.job__list__container ul li:not(.selected):hover{
+    color: var(--color-blue);
+}
+
+.job__list__container ul li.disabled {
+    color: var(--color-gray) !important;
+}
+
+.job__list__container ul li.selected {
+    color: white;
+    background: var(--color-blue);
+    width: 2rem;
+    height: 2rem;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    transition: all ease-in-out .3s;
+}
+

@@ -10,11 +10,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "aos": "^2.3.4",
-    "@fortawesome/fontawesome-free": "^6.4.0",
     "@formkit/auto-animate": "^1.0.0-beta.6",
+    "@fortawesome/fontawesome-free": "^6.4.0",
+    "aos": "^2.3.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-paginate": "^8.2.0",
     "react-router-dom": "^6.11.2",
     "react-window": "^1.8.9"
   },

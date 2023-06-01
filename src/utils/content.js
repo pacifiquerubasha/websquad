@@ -3,6 +3,7 @@ import { images } from "./images";
 export const  menuItems = [
     { name: "About", link: "/about" },
     { name: "News", link: "/news" },
+    { name: "Jobs", link: "/jobs" },
     { name: "Contact", link: "/contact" }
 ];
 

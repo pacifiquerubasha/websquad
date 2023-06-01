@@ -5,7 +5,7 @@ function Footer(props) {
     return (
         <footer>
             <div className="footer__top flex flex-col">
-                <div className='logo' ><span className='text-blue'>Job</span>Metrix</div>
+                <div className='logo' ><span className='text-blue'>Job</span>Magnetix</div>
                 <nav>
                     <ul className='flex'>
                         {menuItems.map((item)=>{

@@ -24,7 +24,7 @@ function Hero({image, title, author, date}) {
                 </div>
                 
 
-            </section>
+        </section>
     );
 }
 

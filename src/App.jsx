@@ -9,6 +9,7 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import News from './pages/News';
 import NewsDetails from './pages/NewsDetails';
+import Jobs from './pages/Jobs';
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
         <Route path='/news' element={<News/>}/>
         <Route path='/news/:id' element={<NewsDetails/>}/>
         <Route path='/contact' element={<Contact/>}/>
+        <Route path='/jobs' element={<Jobs/>}/>
 
       </Routes>
     </BrowserRouter>

@@ -2,8 +2,8 @@ import React from 'react';
 
 function FixedContact(props) {
     return (
-        <a class="fixed-contact">
-            <i class="fa fa-phone"></i>
+        <a href='/contact' className="fixed-contact">
+            <i className="fa fa-phone"></i>
             <span>Contact Us</span>
         </a>
     );
