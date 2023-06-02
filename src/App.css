@@ -72,6 +72,10 @@ body{
     text-transform: uppercase;
 }
 
+.cursor-pointer{
+    cursor: pointer;
+}
+
 .main__btn{
     background-color: var(--color-blue);
     display: flex;
@@ -1136,15 +1140,40 @@ button[type="submit"]{
 
 .news__text{
     font-size: 1.25rem;
+    padding-top: 10rem;
 }
 
 .news__text .container{
-    width: 800px;
     max-width: 90%;
+    gap: 5rem;
+}
+
+.news__text__left>h2{
+    margin: 1rem 0 2rem;
+    font-weight: 600;
 }
 
 .news__text p{
     margin-bottom: 1.5rem;
+}
+
+.news__text__left{
+    width: 40%;
+}
+
+.news__text__right{
+    width: 55%;
+}
+
+.news__text__left .tags{
+    display: flex;
+    gap: 1rem;
+}
+
+.news__text__left .tags span{
+    background-color: #1588fc26;
+    padding: .25rem 1rem;
+    border-radius: 2px;
 }
 
 
@@ -1158,6 +1187,71 @@ button[type="submit"]{
     color: var(--color-blue);
     margin-top: 2rem;
 }
+
+.news__hero{
+    background-color: var(--color-blue);
+    height: 85vh;
+}
+
+header:has(~main>section.news__hero) .text-blue{
+    color: var(--color-darkgray);
+}
+
+.news__hero{
+    position: relative;
+}
+
+.news__image{
+    width: 65%;
+    position: absolute;
+    right: 0;
+    top: 25%;
+    height: 100%;
+}
+
+.news__image::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent linear-gradient(270deg, #FFFFFF00 0%, #1588FC 100%) 0% 0% no-repeat padding-box;
+}
+
+.news__image img{
+    height: 100%;
+    object-fit: cover;
+}
+
+.news__headline{
+    position: absolute;
+    left: 10%;
+    top: 25%;
+    color: var(--color-white);
+}
+
+.news__headline div{
+    display: flex;
+    gap: 2rem;
+    padding: 1rem .5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+    width: 25%;
+}
+
+.news__headline div span:first-of-type{
+    width: 5rem;
+}
+
+.news__headline h1{
+    margin-top: 5rem;
+    width: 75%;
+    font-size: 4rem;
+    color: transparent;
+    -webkit-text-stroke: 1px white;
+}
+
 
 /* JOB SEARCH*/
 
@@ -1238,7 +1332,6 @@ button[type="submit"]{
 }
 
 .job__item{
-    width: 75%;
     padding: 1.5rem;
     align-items: center;
     gap: 5%;
@@ -1272,8 +1365,12 @@ button[type="submit"]{
     width: 75%;
 }
 
-.job__content__top h5{
+.job__content__top h5 {
     font-size: 1.25rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 20rem;
 }
 
 .tags{
@@ -1292,6 +1389,10 @@ button[type="submit"]{
 
 .job__content__top p{
     background-color: rgba(0, 255, 0, 0.154);
+}
+
+.job__content__bottom p{
+    background-color: transparent;
 }
 
 .job__content__bottom{
@@ -1372,3 +1473,134 @@ button[type="submit"]{
     transition: all ease-in-out .3s;
 }
 
+
+.job__header{
+    display: flex;
+    align-items: center;
+    margin-bottom: 5rem;
+    gap: 1rem;
+}
+
+.job__header div{
+    width:2.5rem;
+    height: 2.5rem;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:#41525611;
+    font-size: 1.75rem;
+    color: var(--color-darkgray);
+}
+
+.job__info .job__title{
+    font-size: 1.5rem;
+    color: var(--color-blue);
+}
+
+.job__header h2{
+    font-size: 2.5rem;
+}
+
+.job__info{
+    padding-left: 3.5rem;
+    gap: 5%;
+    width: 100%;
+    align-items: flex-start;
+}
+
+.job__info__left{
+    width: 55%;
+    padding: 1rem;
+    align-items: flex-start;
+
+}
+
+
+.job__info__right{
+    width: 40%;
+    padding: 2rem;
+    background-color:#b3bfb623;
+    border-radius: 5px;
+}
+
+.job__info h3{
+    font-weight: 500;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    color: gray;
+}
+
+.job__info__left>div{
+    margin-bottom: 2rem;
+}
+
+.company__logo{
+    width: 5rem;
+}
+
+div:has(>.company__logo){
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+    font-size: 1.25rem;
+}
+
+.job__details__list{
+    margin-top: 2rem;
+}
+
+.job__details__item{
+    gap: .5rem;
+    margin-bottom: 1rem;
+}
+
+.job__details__item>span:first-of-type{
+    opacity: .5;
+}
+
+.job__details__item p{
+    padding: .25rem 1rem;
+    margin-right: 1rem;
+    background-color: #1588fc28;
+    margin-bottom: 1rem;
+}
+
+.job__tags{
+    flex-wrap: wrap;
+}
+
+.job__desc{
+    margin-top: 2rem;
+}
+
+
+.job__desc strong{
+    display: block;
+    margin-top: 2rem;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.job__desc p{
+    margin-bottom: 1rem;
+    font-size: 1.15rem;
+}
+
+.job__desc img{
+    display: none;
+}
+
+.job__desc ul{
+    list-style-type: circle;
+    padding-left: 3rem;
+}
+
+.job__desc ol{
+    padding-left: 3rem;
+}
+
+.job__desc ul li,
+.job__desc ol li{
+    margin-bottom: .75rem;
+}

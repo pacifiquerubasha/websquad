@@ -4,6 +4,8 @@ import Footer from '../components/Footer';
 import Header from '../components/Header';
 import { images } from '../utils/images';
 import ReactPaginate from 'react-paginate';
+import JobDetails from '../components/JobDetails';
+import { daysDiff } from '../utils/utils';
 
 function Jobs(props) {
 
@@ -26,7 +28,6 @@ function Jobs(props) {
                 const data = await res.json();
                 if(data){
                     const testData = data.jobs;
-
                     setJobs(testData)
                     setJobsToShow(testData)
                     setIsLoading(false)
@@ -36,6 +37,8 @@ function Jobs(props) {
                     
                     setFilters(tempFilters);
                     setFiltersToShow(tempFilters);
+
+                    console.log(testData)
 
                 }
 
@@ -51,236 +54,14 @@ function Jobs(props) {
 
     }, [])
 
-    const [allJobs, setAllJobs] = useState([
-        {
-          id: 1,
-          title: 'React Developer',
-          type: 'Full Time',
-          company: 'Figma',
-          companySize: '10-50',
-          salary: '10k-50k',
-          time: '2 days ago',
-          image: 'images.react',
-          tags: ['JSX', 'Javascript'],
-        },
-        {
-          id: 2,
-          title: 'Frontend Engineer',
-          type: 'Full Time',
-          company: 'Acme Corp',
-          companySize: '100-500',
-          salary: '60k-80k',
-          time: '1 day ago',
-          image: 'images.frontend',
-          tags: ['HTML', 'CSS', 'JavaScript'],
-        },
-        {
-          id: 3,
-          title: 'Full Stack Developer',
-          type: 'Contract',
-          company: 'XYZ Tech',
-          companySize: '500+',
-          salary: '80k-100k',
-          time: '3 days ago',
-          image: 'images.fullstack',
-          tags: ['Node.js', 'Express', 'React', 'MongoDB'],
-        },
-        {
-          id: 4,
-          title: 'Python Developer',
-          type: 'Full Time',
-          company: 'TechCo',
-          companySize: '50-100',
-          salary: '70k-90k',
-          time: '1 day ago',
-          image: 'images.python',
-          tags: ['Python', 'Django', 'REST API'],
-        },
-        {
-          id: 5,
-          title: 'UI/UX Designer',
-          type: 'Full Time',
-          company: 'DesignWorks',
-          companySize: '10-50',
-          salary: '50k-70k',
-          time: '2 days ago',
-          image: 'images.designer',
-          tags: ['UI Design', 'UX Design', 'Prototyping'],
-        },
-        {
-          id: 6,
-          title: 'Java Developer',
-          type: 'Full Time',
-          company: 'ByteCode',
-          companySize: '1000+',
-          salary: '90k-120k',
-          time: '3 days ago',
-          image: 'images.java',
-          tags: ['Java', 'Spring', 'Hibernate'],
-        },
-        {
-          id: 7,
-          title: 'Data Analyst',
-          type: 'Part Time',
-          company: 'Data Insights',
-          companySize: '50-100',
-          salary: '40k-60k',
-          time: '4 days ago',
-          image: 'images.data',
-          tags: ['Data Analysis', 'SQL', 'Excel'],
-        },
-        {
-          id: 8,
-          title: 'Backend Engineer',
-          type: 'Full Time',
-          company: 'CodeNinja',
-          companySize: '10-50',
-          salary: '60k-80k',
-          time: '5 days ago',
-          image: 'images.backend',
-          tags: ['Node.js', 'Python', 'REST API'],
-        },
-        {
-          id: 9,
-          title: 'DevOps Engineer',
-          type: 'Full Time',
-          company: 'Cloud Solutions',
-          companySize: '100-500',
-          salary: '80k-100k',
-          time: '6 days ago',
-          image: 'images.devops',
-          tags: ['AWS', 'Docker', 'Kubernetes'],
-        },
-        {
-          id: 10,
-          title: 'Product Manager',
-          type: 'Full Time',
-          company: 'Innovation Labs',
-          companySize: '500+',
-          salary: '100k-120k',
-          time: '1 week ago',
-          image: 'images.product',
-          tags: ['Product Management', 'Agile', 'UX'],
-        },
-        {
-          id: 11,
-          title: 'Mobile App Developer',
-          type: 'Full Time',
-          company: 'AppTech',
-          companySize: '100-500',
-          salary: '70k-90k',
-          time: '2 weeks ago',
-          image: 'images.mobile',
-          tags: ['Android', 'iOS', 'React Native'],
-        },
-        {
-          id: 12,
-          title: 'Data Scientist',
-          type: 'Full Time',
-          company: 'Data Innovators',
-          companySize: '10-50',
-          salary: '90k-110k',
-          time: '2 weeks ago',
-          image: 'images.datascience',
-          tags: ['Machine Learning', 'Python', 'Statistics'],
-        },
-        {
-          id: 13,
-          title: 'Quality Assurance Engineer',
-          type: 'Contract',
-          company: 'Testing Solutions',
-          companySize: '10-50',
-          salary: '50k-70k',
-          time: '3 weeks ago',
-          image: 'images.qa',
-          tags: ['Manual Testing', 'Automated Testing', 'Bug Tracking'],
-        },
-        {
-          id: 14,
-          title: 'Ruby on Rails Developer',
-          type: 'Full Time',
-          company: 'RubySoft',
-          companySize: '50-100',
-          salary: '70k-90k',
-          time: '1 month ago',
-          image: 'images.ruby',
-          tags: ['Ruby', 'Ruby on Rails', 'MySQL'],
-        },
-        {
-          id: 15,
-          title: 'Network Engineer',
-          type: 'Full Time',
-          company: 'Connectivity Solutions',
-          companySize: '100-500',
-          salary: '80k-100k',
-          time: '1 month ago',
-          image: 'images.network',
-          tags: ['Cisco', 'Routing', 'Switching'],
-        },
-        {
-          id: 16,
-          title: 'Graphic Designer',
-          type: 'Full Time',
-          company: 'Artistry Studio',
-          companySize: '10-50',
-          salary: '50k-70k',
-          time: '2 months ago',
-          image: 'images.graphic',
-          tags: ['Adobe Creative Suite', 'Illustration', 'Typography'],
-        },
-        {
-          id: 17,
-          title: 'Cybersecurity Analyst',
-          type: 'Full Time',
-          company: 'SecureTech',
-          companySize: '500+',
-          salary: '90k-110k',
-          time: '2 months ago',
-          image: 'images.cybersecurity',
-          tags: ['Security Assessment', 'Incident Response', 'Network Security'],
-        },
-        {
-          id: 18,
-          title: 'Sales Representative',
-          type: 'Full Time',
-          company: 'SalesForce',
-          companySize: '1000+',
-          salary: '80k-100k',
-          time: '3 months ago',
-          image: 'images.sales',
-          tags: ['B2B Sales', 'CRM', 'Negotiation'],
-        },
-        {
-          id: 19,
-          title: 'Business Analyst',
-          type: 'Contract',
-          company: 'Consulting Solutions',
-          companySize: '100-500',
-          salary: '70k-90k',
-          time: '4 months ago',
-          image: 'images.business',
-          tags: ['Requirements Gathering', 'Process Improvement', 'Data Analysis'],
-        },
-        {
-          id: 20,
-          title: 'Artificial Intelligence Engineer',
-          type: 'Full Time',
-          company: 'AI Technologies',
-          companySize: '50-100',
-          salary: '100k-120k',
-          time: '5 months ago',
-          image: 'images.ai',
-          tags: ['Machine Learning', 'Deep Learning', 'Python'],
-        },
-      ])
-    
-
+     
       const [currentFilters, setCurrentFilters] = useState([]);
       const [jobListTitle, setJobListTitle] = useState("All Jobs");
 
       
 
       const [searchFilterKeyword, setSearchFilterKeyword] = useState("");
+
       const handleSearchFilter = (e)=>setSearchFilterKeyword(e.target.value);
 
       useEffect(()=>{
@@ -357,8 +138,13 @@ function Jobs(props) {
     };   
 
 
-    const daysDiff = (date)=>Math.abs(Math.floor((new Date(date) - new Date()) / (1000 * 60 * 60 * 24)));
-     
+    const [currentJob, setCurrentJob] = useState({});
+    const [isJobDetails, setIsJobDetails] = useState(false);
+   
+    const handleShowJobDetails = (job)=>{
+      setCurrentJob(job);
+      setIsJobDetails(true)
+    }
 
     return (
         <>
@@ -374,7 +160,7 @@ function Jobs(props) {
                         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque voluptates nam, animi cum deserunt ad.</p> 
 
                         <form action="" className='search__form' onSubmit={handleSearchJob}>
-                            <input type="text" placeholder="Search Jobs" name='search'/>
+                            <input type="text" placeholder="Search Jobs" name='search' onKeyUp={()=> isJobDetails && setIsJobDetails(false)}/>
                             <input type="submit" value="Search"/>
                         </form>                  
 
@@ -383,6 +169,8 @@ function Jobs(props) {
 
                 </section>
 
+                {!isJobDetails ? 
+                
                 <section className="jobs__list">
                     <div className="container flex">
                         <div className="filters flex flex-col">
@@ -452,8 +240,8 @@ function Jobs(props) {
                                                 </div>
                                                 <div className="job__content__bottom flex">
                                                     <h5>{job.company_name}</h5>
-                                                    <div><i className='fas fa-user'></i>{job.candidate_required_location} </div>
-                                                    <div><i className='fas fa-user'></i>{job.salary}</div>
+                                                    <div><i className='fas fa-user'></i><p>{job.candidate_required_location}</p> </div>
+                                                    {job.salary && <div><i className='fas fa-user'></i>{job.salary}</div>}
                                                 </div>
                                                 <div className="tags flex">
                                                     {job.tags.filter((tag, i)=>i<2).map((tag)=> <p>{tag}</p>)}
@@ -461,7 +249,7 @@ function Jobs(props) {
                                             </div>
                                         </div>                                        
 
-                                        <a href='/jobs'>View Job</a>
+                                        <a className='cursor-pointer' onClick={()=>handleShowJobDetails(job)} >View Job</a>
                                     </div>
                                 ))
                             }
@@ -533,6 +321,13 @@ function Jobs(props) {
 
                     </div>
                 </section>
+
+                :
+
+                <JobDetails job={currentJob} setIsJobDetails={setIsJobDetails}/>
+                
+                }
+
                 
             </main>
 
