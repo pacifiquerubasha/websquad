@@ -153,6 +153,7 @@ body{
     position: relative;
     mix-blend-mode: difference;
     margin-bottom: 1rem;
+    position: relative;
 }
 
 .section__desc{
@@ -394,7 +395,9 @@ header>nav>ul a{
     position: relative;
 }
 
-.about .container::before{
+.about .container::before,
+.story__left::before,
+.news__text .container::before{
     content: url(./assets/illustrations/dots.svg);
     position: absolute;
     z-index: -1;
@@ -456,7 +459,11 @@ header>nav>ul a{
     position: relative;    
 }
 
-.section2__right::before{
+.section2__right::before,
+.services .section__title::before,
+.team .section__title::before,
+.partners .section__title::before,
+.main__news .intro__right::before{
     content: url(./assets/illustrations/dots.svg);
     position: absolute;
     z-index: -1;
@@ -856,7 +863,7 @@ header:has(~.main__with__banner) a{
 .story__left,
 .story__right{
     width: 50%;
-    
+    position: relative;    
 }
 
 .story__right{
@@ -1142,6 +1149,7 @@ button[type="submit"]{
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+    position: relative;
 }
 
 .intro__right>span{
@@ -1171,6 +1179,7 @@ button[type="submit"]{
 .news__text .container{
     max-width: 90%;
     gap: 5rem;
+    position: relative;
 }
 
 .news__text__left>h2{
@@ -1184,6 +1193,7 @@ button[type="submit"]{
 
 .news__text__left{
     width: 40%;
+    position: relative;
 }
 
 .news__text__right{
@@ -1214,12 +1224,12 @@ button[type="submit"]{
 }
 
 .news__hero{
-    background-color: var(--color-blue);
+    background-color: var(--color-darkgray);
     height: 85vh;
 }
 
 header:has(~main>section.news__hero) .text-blue{
-    color: var(--color-darkgray);
+    /* color: var(--color-darkgray); */
 }
 
 .news__hero{
@@ -1241,7 +1251,7 @@ header:has(~main>section.news__hero) .text-blue{
     top: 0;
     width: 100%;
     height: 100%;
-    background: transparent linear-gradient(270deg, #FFFFFF00 0%, #1588FC 100%) 0% 0% no-repeat padding-box;
+    background: transparent linear-gradient(270deg, #FFFFFF00 0%, var(--color-darkgray) 100%) 0% 0% no-repeat padding-box;
 }
 
 .news__image img{
