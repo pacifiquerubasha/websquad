@@ -250,9 +250,6 @@ body{
 
 
 
-
-
-
 /* HEADER */
 
 header{
@@ -260,6 +257,33 @@ header{
     padding: 2.5rem 5% 1.5rem;
     position: absolute;
     z-index: 999;
+}
+
+.fixedHeader{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--color-white);
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    padding: 1rem 5%;
+    transition: all ease-in .3s;
+}
+
+.fixedHeader a{
+    color: var(--color-darkgray) !important;
+}
+
+.fixedHeader ul li a:hover,
+header ul li a:hover{
+    color: var(--color-blue) !important;
+}
+
+.fixedHeader span{
+    color: var(--color-blue) !important;
+}
+
+.fixedHeader .logo{
+    font-size: 3rem;
 }
 
 .logo{
@@ -286,6 +310,7 @@ header>nav>ul{
 
 header>nav>ul a{
     color: var(--color-darkgray);
+    transition: all ease-in-out .3s;
 }
 
 
@@ -1256,7 +1281,7 @@ header:has(~main>section.news__hero) .text-blue{
 /* JOB SEARCH*/
 
 .jobs .about__hero{
-    height: 60vh;
+    height: 70vh;
 }
 
 .search__form{
