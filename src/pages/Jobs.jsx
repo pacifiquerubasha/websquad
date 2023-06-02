@@ -139,7 +139,7 @@ function Jobs(props) {
 
 
     const [currentJob, setCurrentJob] = useState({});
-    const [isJobDetails, setIsJobDetails] = useState(true);
+    const [isJobDetails, setIsJobDetails] = useState(false);
    
     const handleShowJobDetails = (job)=>{
       setCurrentJob(job);
