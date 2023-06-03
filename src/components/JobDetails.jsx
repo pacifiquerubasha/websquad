@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from 'react';
-import { images } from '../utils/images';
 import { daysDiff } from '../utils/utils';
 
 function JobDetails({job, setIsJobDetails}) {

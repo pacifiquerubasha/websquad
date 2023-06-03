@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react'
 import './App.css'
+import './Media.css'
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import AOS from 'aos';
 import 'aos/dist/aos.css';

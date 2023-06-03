@@ -1,0 +1,237 @@
+
+@media screen and (max-width:1440px){
+    
+}
+
+@media screen and (max-width:1199px){
+    
+}
+
+
+@media screen and (max-width:1024px){
+    .hero__right h1 {
+        font-size: 3.5rem;
+        line-height: 3.5rem;
+    }
+
+    .logo {
+        font-size: 2.5rem;
+    }
+
+    .main__btn {
+        padding: .5rem .75rem;
+    }
+
+    .section__title {
+        font-size: 2.5rem;
+    }
+
+    .about__box h5 {
+        font-size: 1.25rem;
+        margin: 1rem 0 1rem;
+    }
+
+    .container {
+        max-width: 90%;
+        padding: 5rem 0;
+    }
+
+    section.ceo .container >p {
+        font-size: 1.5rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .news__box {
+        width: 45%;
+    }
+
+    .news__grid{
+        flex-wrap: wrap;
+    }
+
+    section.testimonials .container {
+        flex-direction: column;
+    }
+
+    .testimonials__right {
+        width: 100%;
+        margin-top: 5rem;
+    }
+
+    .testimonial:nth-child(4) {
+        transform: translateX(0%);
+    }
+    
+}
+
+@media screen and (max-width:768px){
+
+    .hero {
+        height: auto;
+        flex-direction: column;
+        padding: 15rem 0 5rem;
+    }
+
+    .hero__right {
+        width: 75%;
+        margin-bottom: 5rem;
+    }
+
+    .hero__left {
+        width: 100%;
+        padding-top: 10%;
+    }
+
+    .hero__right h1 {
+        font-size: 2.5rem;
+        line-height: 2.5rem;
+    }
+
+    .about .container {
+        gap: 5rem;
+        align-items: flex-start;
+        position: relative;
+        flex-direction: column;
+    }
+
+    .about__left, .about__right,
+    .section3__left, .section3__right,
+    .testimonials__left {
+        width: 100%;
+    }
+
+    section.ceo .container >p {
+        font-size: 1.25rem;
+    }
+
+    section.section2 .container {
+        flex-direction: column-reverse;
+        gap: 5rem;
+    }
+
+    .section2__right,
+    .section2__left{
+        width: 100%;
+        padding: 0;
+    }
+
+    section.section3 .container {
+        flex-direction: column;
+        gap: 5rem;
+    }
+
+    .about__left,
+    .section2__right,
+    .section3__left,
+    section.news .container,
+    .testimonials__left {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    section.cta .container p {
+        width: 90%;
+    }
+
+    .fixedHeader .logo {
+        font-size: 2rem;
+    }
+
+    header a {
+        font-size: 1rem;
+    }
+
+    .toggleContainer{
+        display: flex !important;
+    }
+
+    header{
+        justify-content: space-between;
+        transition: all ease-in-out .2s;
+        align-items: center;
+    }
+
+    header nav{
+        position: absolute;
+    }
+
+    header nav {
+        position: absolute;
+        top: 99%;
+        left: 0;
+        width: 100%;
+        background-color: var(--color-white);
+        box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.16);
+        height: 0;
+        padding: 0 5%;
+        overflow: hidden;
+        transition: all ease-in-out .5s;
+    }
+
+    header:has(.checkbox1:checked){
+        background-color: var(--color-white);
+    }
+
+    header:has(.checkbox1:checked) nav{
+        height: 50vh;
+        padding: 2rem 5%;
+    }
+
+
+    header>nav>ul {
+        display: flex;
+        gap: 2rem;
+        font-size: 1.25rem;
+        height: 100%;
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .toggleContainer{
+        overflow: hidden;
+    }
+    
+
+}
+
+
+@media screen and (max-width:498px){
+    .hero {
+        padding: 10rem 0 5rem;
+    }
+    .hero__right {
+        width: 100%;
+    }
+
+    header {
+        padding: 1.5rem 5% 1.5rem;
+    }
+
+    .logo{font-size: 2rem;}
+
+    .about__box,
+    .news__box,
+    .testimonial,
+    .footer__top .logo {
+        width: 100%;
+    }
+
+    .news__content p {
+        max-width: 90%;
+    }
+
+    .footer__top ul {
+        gap: 2rem;
+        flex-direction: column;
+        margin-top: 5rem;
+    }
+
+    .footer__bottom {
+        padding: 1rem 5%;
+    }
+
+
+
+}

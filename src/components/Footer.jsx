@@ -19,7 +19,7 @@ function Footer(props) {
 
             <div className="footer__bottom flex">
                 <span>
-                    &copy; 2021 JobMetrix. All Rights Reserved.
+                    &copy; 2021 JobMagnetix. All Rights Reserved.
                 </span>
                 <a href="">
                     Privacy Policy

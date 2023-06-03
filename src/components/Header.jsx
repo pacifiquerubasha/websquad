@@ -29,7 +29,18 @@ function Header(props) {
                         )
                     })}
                 </ul>
-            </nav>        
+            </nav> 
+            <div class="toggleContainer">
+                    <input type="checkbox" id="checkbox1" class="checkbox1 visuallyHidden"/>
+                    <label for="checkbox1">
+                        <div class="hamburger hamburger1">
+                            <span class="bar bar1"></span>
+                            <span class="bar bar2"></span>
+                            <span class="bar bar3"></span>
+                            <span class="bar bar4"></span>
+                        </div>
+                    </label>
+                </div>       
         </header>
     );
 }
