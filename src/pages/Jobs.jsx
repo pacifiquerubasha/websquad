@@ -9,6 +9,11 @@ import { daysDiff } from '../utils/utils';
 
 function Jobs(props) {
 
+    
+    useEffect(()=>{
+        document.title = "Jobs | JobMagnetix"
+    }, [])
+
 
     const [jobs, setJobs] = useState([]);
     const [isLoading, setIsLoading] = useState(false);

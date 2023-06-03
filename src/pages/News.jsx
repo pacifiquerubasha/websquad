@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Header from '../components/Header';
 import FixedContact from '../components/FixedContact';
 import Footer from '../components/Footer';
@@ -7,6 +7,11 @@ import { news } from '../utils/content';
 import NewsTemplate from '../components/NewsTemplate';
 
 function News(props) {
+
+    
+    useEffect(()=>{
+        document.title = "News | JobMagnetix"
+    }, [])
     
     return (
         <>

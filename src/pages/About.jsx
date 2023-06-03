@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { images } from '../utils/images';
@@ -6,6 +6,11 @@ import FixedContact from '../components/FixedContact';
 import Hero from '../components/Hero';
 
 function About(props) {
+
+    useEffect(()=>{
+        document.title = "About | JobMagnetix"
+    }, [])
+    
     return (
         <>
 

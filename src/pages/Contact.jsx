@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 
 function Contact(props) {
+
+    
+    useEffect(()=>{
+        document.title = "Contact | JobMagnetix"
+    }, [])
     return (
         <>
 

@@ -10,8 +10,9 @@ function NewsDetails({match}) {
     const params = useParams();
 
     useEffect(()=>{
-        console.log(params.id)
+        document.title ="News | JobMagnetix"
     }, [])
+    
     return (
         <>
             <Header/>
