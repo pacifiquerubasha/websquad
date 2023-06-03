@@ -332,6 +332,10 @@
         flex-direction: column;
     }
 
+    .news__content{
+        text-align: left;
+    }
+
 }
 
 

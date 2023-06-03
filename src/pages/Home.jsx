@@ -8,10 +8,16 @@ import NewsTemplate from '../components/NewsTemplate';
 
 function Home(props) {
 
-    
     useEffect(()=>{
         document.title = "Home | JobMagnetix"
     }, [])
+
+    const splitTitle = (title)=>{
+        const split = title.split(' ');
+        return <>
+            <span className='text-blue'>{split.slice(0, 1)} </span>{split.slice(1).join(" ")}  
+        </>
+    }
 
     return (
         <>
@@ -47,7 +53,7 @@ function Home(props) {
                 <div className="container flex">
                     <div className="about__left" data-aos="fade-right" data-aos-duration="1000">
                         <h3 className='section__title'>
-                            <span>{about.title}</span>                            
+                            {splitTitle(about.title)}                        
                         </h3>
                         <p className='section__desc'>{about.subtitle}</p>
                     </div>
@@ -91,7 +97,7 @@ function Home(props) {
                     </div>
                     <div className="section2__right flex flex-col" data-aos="fade-right" data-aos-duration="1000">
                         <h3 className='section__title'>
-                            <span>{section2.title}</span>                            
+                            {splitTitle(section2.title)}                          
                         </h3>
                         <p className='section__desc'>
                             {section2.subtitle}
@@ -114,7 +120,7 @@ function Home(props) {
                 <div className="container flex">
                     <div className="section3__left flex flex-col">
                         <h3 className='section__title'>
-                            <span>{section3.title}</span>
+                            {splitTitle(section3.title)}
                         </h3>
                         <p className='section__desc'>
                             {section3.subtitle}
@@ -155,7 +161,7 @@ function Home(props) {
                 <div className="container flex flex-col">
 
                     <h3 className='section__title'>
-                        <span>{news.title}</span>
+                        {splitTitle(news.title)}
                     </h3>
                     <p className='section__desc'>
                         {news.subtitle}
@@ -207,7 +213,7 @@ function Home(props) {
                 <div className="container flex">
                     <div className="testimonials__left">
                         <h3 className='section__title'>
-                            <span>{testimonials.title}</span>
+                            {splitTitle(testimonials.title)}
                         </h3>
                         <p className='section__desc'>
                             {testimonials.subtitle}
