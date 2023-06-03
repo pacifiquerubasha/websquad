@@ -22,7 +22,8 @@
         padding: .5rem .75rem;
     }
 
-    .section__title {
+    .section__title,
+    .news__headline h1 {
         font-size: 2.5rem;
     }
 
@@ -119,7 +120,8 @@
 
     section.section3 .container,
     section.story .container,
-    section.intro {
+    section.intro,
+    .jobs__list .container {
         flex-direction: column;
         gap: 5rem;
     }
@@ -216,11 +218,16 @@
     .service {
         flex-direction: column;
     }
-    .service:nth-of-type(2) {
+    .service:nth-of-type(2),
+    .job__info {
         flex-direction: column-reverse;
     }
 
-    .service>div{
+    .service>div,
+    .filters,
+    .jobs__container,
+    .job__info__left,
+    .job__info__right{
         width: 100%;
     }
 
@@ -232,7 +239,10 @@
 
     .footer__top .logo,
     .main__news .intro__left,
-    .main__news .intro__right {
+    .main__news .intro__right,
+    .job__list__container ul,
+    .news__text__left,
+    .news__text__right {
         width: 100%;
     }
 
@@ -253,8 +263,73 @@
         width: 90%;
     }
 
-    .intro__right h2 {
+    .intro__right h2,
+    .job__header h2 {
         font-size: 2rem;
+    }
+
+    .about__hero .hero__content{
+        width: 90%;
+    }
+
+    .search__form {       
+        justify-content: center;
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .jobs__list .container,
+    section.job__details .container{
+        padding-top: 2rem;
+    }
+
+    .jobs__list .container h3{
+        font-size: 1.25rem;
+    }
+
+    .job__content__top {
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .job__item,
+    .job__content__bottom {
+        flex-wrap: wrap;
+    }
+
+    .job__item__left {
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .job__item>a{
+        margin-top: 2rem;
+    }
+
+    .job__header,
+    .job__info__right{
+        margin-bottom: 3rem;
+    }
+
+    .job__info{
+        padding-left: 0;
+    }
+
+    .news__image {
+        width: 100%;
+        position: relative;
+        top: 15%;
+        height: 100%;
+    }
+
+    .news__headline div,
+    .news__headline h1{
+        width: 90%;
+    }
+
+    .news__text .container {
+        flex-direction: column;
     }
 
 }
@@ -295,6 +370,19 @@
         padding: 1rem 5%;
     }
 
+    .news__headline h1{
+        font-size: 1.75rem;
+        color: white;
+        font-weight: 500;
+    }
+
+    .news__text {
+        padding-top: 5rem;
+    }
+
+    .news__text__left>h2{
+        font-size: 1.5rem;
+    }
 
 
 }

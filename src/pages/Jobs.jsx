@@ -191,18 +191,35 @@ function Jobs(props) {
                             
                             </>
                             }
-                            <div className="filters__list flex flex-col">
 
-                                {filtersToShow.map((filter)=>{
-                                        return(
-                                            <div className="filter__item">
-                                                <input type="checkbox" name={filter} id={filter} checked={currentFilters.includes(filter)} onChange={handleAddFilter}/>
-                                                <label htmlFor={filter}>{filter}</label>
-                                            </div>
-                                        )
-                                    }
-                                    )}                              
-                            </div>
+                            {isLoading ?
+                            
+                                <div class="lds-roller">
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                </div>:
+
+                                <div className="filters__list flex flex-col">
+
+                                    {filtersToShow.map((filter)=>{
+                                            return(
+                                                <div className="filter__item">
+                                                    <input type="checkbox" name={filter} id={filter} checked={currentFilters.includes(filter)} onChange={handleAddFilter}/>
+                                                    <label htmlFor={filter}>{filter}</label>
+                                                </div>
+                                            )
+                                        }
+                                        )}                              
+                                </div>
+                            }
+
+
                         </div>
 
                         <div className="jobs__container flex flex-col">
