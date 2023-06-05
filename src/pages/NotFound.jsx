@@ -1,12 +1,13 @@
 import React from 'react';
 import Header from '../components/Header';
+import { images } from '../utils/images';
 
 function NotFound(props) {
     return (
         <>
             <Header/>
-            <main>
-                404
+            <main className='not__found'>
+                <img src={images.error} alt="" />
             </main>
             
         </>

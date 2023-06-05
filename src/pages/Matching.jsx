@@ -198,7 +198,7 @@ function Matching(props) {
     return (
         <>
 
-        <Header/>
+        <Header page="Matching"/>
         <main className='main__contentful'>
             <div className="container flex flex-col">
                 <h1>Matching</h1>

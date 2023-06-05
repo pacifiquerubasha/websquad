@@ -16,7 +16,7 @@ function News(props) {
     return (
         <>
 
-        <Header/>
+        <Header page="News"/>
 
         <main className='main__news'>
             <h1>The <span className='text-blue'>Blog</span> </h1>

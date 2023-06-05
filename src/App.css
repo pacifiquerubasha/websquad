@@ -314,6 +314,28 @@ header>nav>ul{
     align-items: center;
 }
 
+header>nav>ul li{
+    position: relative;
+}
+
+header>nav>ul li::after{
+    height: 2px;
+    width: 0;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    content: "";
+    background-color: var(--color-blue);
+    transition: all ease-in-out .3s;
+}
+
+header>nav>ul li:hover::after,
+.currentItem::after{
+    width: 100%;
+}
+
+.currentItem a{color: var(--color-blue) !important;}
 
 header>nav>ul a{
     color: var(--color-darkgray);
@@ -1848,5 +1870,14 @@ div:has(>.company__logo){
     display: inline-block;
 }
 
-
+.not__found{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.not__found img{
+    width: 40rem;
+    max-width: 90%;
+}
 

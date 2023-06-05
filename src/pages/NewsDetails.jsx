@@ -15,7 +15,7 @@ function NewsDetails({match}) {
     
     return (
         <>
-            <Header/>
+            <Header page="News"/>
             <main className='main__with__banner'>
                 {/* <Hero image={images.hero} title="News Title" author="Lady Mary" date="12-02-2023"/> */}
 

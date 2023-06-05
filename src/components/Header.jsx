@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { menuItems } from '../utils/content';
 
-function Header(props) {
+function Header({page}) {
 
     const [isFixed, setIsFixed] = useState();
 
@@ -25,7 +25,7 @@ function Header(props) {
                 <ul className='flex'>
                     {menuItems.map((item)=>{
                         return (
-                            <li><a href={item.link}>{item.name}</a></li>
+                            <li className={`${page === item.name && "currentItem"}`}><a href={item.link}>{item.name}</a></li>
                         )
                     })}
                 </ul>

@@ -14,7 +14,7 @@ function About(props) {
     return (
         <>
 
-        <Header/>       
+        <Header page="About"/>       
         
         <main className='main__with__banner'>
             

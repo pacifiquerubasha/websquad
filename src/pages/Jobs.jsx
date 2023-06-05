@@ -153,7 +153,7 @@ function Jobs(props) {
 
     return (
         <>
-            <Header/>
+            <Header page="Jobs"/>
             <main className='main__with__banner jobs'>
                 <section ref={topListRef} className="about__hero ">
                     <div className="hero__image">

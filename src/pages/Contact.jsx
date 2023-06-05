@@ -11,7 +11,7 @@ function Contact(props) {
     return (
         <>
 
-        <Header/>       
+        <Header page="Contact"/>       
         
         <main className='main__contact'>            
         
