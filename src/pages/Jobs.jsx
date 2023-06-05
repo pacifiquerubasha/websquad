@@ -29,7 +29,7 @@ function Jobs(props) {
             setIsLoading(true)
             const res = await fetch(api);
 
-            if(res){
+            if(res.ok){
                 const data = await res.json();
                 if(data){
                     const testData = data.jobs;

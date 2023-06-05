@@ -146,7 +146,7 @@
     }
 
     header a {
-        font-size: 1rem;
+        font-size: 1.15rem;
     }
 
     .toggleContainer{
@@ -181,7 +181,7 @@
     }
 
     header:has(.checkbox1:checked) nav{
-        height: 50vh;
+        height: 75vh;
         padding: 2rem 5%;
     }
 
@@ -207,7 +207,8 @@
     }
 
     .about__hero h1,
-    .main__news h1{
+    .main__news h1,
+    .main__contentful h1{
         font-size: 2.5rem;
     }
 
@@ -336,6 +337,18 @@
         text-align: left;
     }
 
+    .fixedSubmenu{
+        display: none;
+    }
+
+    .main__contentful {
+        padding: 5rem 0 5rem;
+    }
+
+    .main__contentful .illustration {
+        height: 25rem;
+    }
+
 }
 
 
@@ -386,6 +399,10 @@
 
     .news__text__left>h2{
         font-size: 1.5rem;
+    }
+
+    .main__contentful h1{
+        font-size: 1.75rem;
     }
 
 

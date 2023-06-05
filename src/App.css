@@ -35,7 +35,8 @@ main, footer{
 }
 
 ::-webkit-scrollbar {
-    width: 12px;               
+    width: 12px;   
+    height: 10px;            
 }
 ::-webkit-scrollbar-track {
     background: var(--color-lightgray);        
@@ -1721,3 +1722,131 @@ div:has(>.company__logo){
 .job__desc ol li{
     margin-bottom: .75rem;
 }
+
+
+.main__contentful{
+    padding: 10rem 0 5rem;
+}
+
+.main__contentful .container{
+    align-items: center;
+}
+
+.main__contentful h1{
+    font-size: 4rem;
+    margin-bottom: 5rem;
+}
+
+.main__contentful .illustration{
+    width: 50rem;
+    height: 40rem;
+    max-width: 100%;
+}
+
+.main__contentful .illustration img{
+    height: 100%;
+    object-fit: cover;
+}
+
+.main__contentful .description{
+    width: 50rem;
+    max-width: 100%;
+    margin-top: 6rem;
+    font-size: 1.15rem;
+}
+
+.main__contentful h2{
+    margin-bottom: 2rem;
+    color: var(--color-blue);
+}
+
+.main__contentful h4{
+    margin: 1rem 0 ;
+}
+
+.main__contentful .description p:has(>strong){
+    margin-top: 1.5rem;
+    margin-bottom: .5rem;
+}
+
+.main__contentful .description ol{
+    padding-left: 2rem;
+    margin-top: 1rem;
+}
+
+.main__contentful .description ol li,
+.note__{
+    margin-bottom: 1rem;
+}
+
+.code__bloc{margin-bottom: 2rem;}
+.code__bloc>p{opacity: .5;}
+
+.main__contentful .description .controls{
+    justify-content: space-between;
+}
+
+.next__link,
+.prev__link{
+    color: var(--color-blue);
+    display: block;
+    margin-top: 3rem;
+    cursor: pointer;
+    display: flex;
+    width: 50%;
+  
+}
+
+.main__contentful .description:has(.prev__link) .next__link{
+    justify-content: flex-end;
+}
+
+.next__link div,
+.prev__link div{
+    max-width: 75%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.fixedSubmenu{
+    position: fixed;
+    top: 50%;
+    left: 5%;
+    transform: translateY(-50%);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.fixedSubmenu div{    
+    border-radius: 5px;
+    margin-bottom: 2rem;
+    font-size: 1.25rem;
+    background-color: #1588fc21;
+    color: var(--color-blue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    padding: .75rem;
+    transition: all ease-in-out .3s;
+    gap: .75rem;
+}
+.fixedSubmenu div span{
+    display: none;
+    font-size: 1rem;
+}
+
+.fixedSubmenu div:hover{
+    background-color:var(--color-blue);
+    color: var(--color-white);
+}
+
+.fixedSubmenu div:hover span{
+    display: inline-block;
+}
+
+
+

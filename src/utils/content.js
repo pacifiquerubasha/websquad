@@ -4,6 +4,9 @@ export const  menuItems = [
     { name: "About", link: "/about" },
     { name: "News", link: "/news" },
     { name: "Jobs", link: "/jobs" },
+    { name: "Visualisation", link: "/visualisation" },
+    { name: "Matching", link: "/matching" },
+    { name: "Techniques", link: "/techniques" },
     { name: "Contact", link: "/contact" }
 ];
 
