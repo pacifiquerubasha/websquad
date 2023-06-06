@@ -1861,9 +1861,10 @@ div:has(>.company__logo){
     font-size: 1rem;
 }
 
-.fixedSubmenu div:hover{
-    background-color:var(--color-blue);
-    color: var(--color-white);
+.fixedSubmenu div:hover,
+.current__submenu--item{
+    background-color:var(--color-blue) !important;
+    color: var(--color-white) !important;
 }
 
 .fixedSubmenu div:hover span{
@@ -1881,3 +1882,8 @@ div:has(>.company__logo){
     max-width: 90%;
 }
 
+.word__cloud{
+    width: 50rem;
+    max-width: 90%;
+    margin: 0 auto;
+}

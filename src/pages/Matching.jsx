@@ -244,13 +244,12 @@ function Matching(props) {
                         }
 
                 </div>
-
             </div>
 
             <div className="fixedSubmenu">
                 {submenuItems.map((item, index)=>{
                     return (
-                    <div onClick={()=>handleChangeContent(index)}>
+                    <div onClick={()=>handleChangeContent(index)} className={`${index == currentContentIndex && "current__submenu--item"}`}>
                         <i className={item.icon}></i>
                         <span>{item.text}</span>
                     </div>                        

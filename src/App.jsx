@@ -14,7 +14,6 @@ import Jobs from './pages/Jobs';
 import Matching from './pages/Matching';
 import Visualisations from './pages/Visualisations';
 import NotFound from './pages/NotFound';
-import Techniques from './pages/Techniques';
 
 function App() {
 
@@ -31,10 +30,8 @@ function App() {
         <Route path='/news/:id' element={<NewsDetails/>}/>
         <Route path='/matching' element={<Matching/>}/>
         <Route path='/visualisations' element={<Visualisations/>}/>
-        <Route path='/techniques' element={<Techniques/>}/>
         <Route path='/contact' element={<Contact/>}/>
         <Route path='/jobs' element={<Jobs/>}/>
-
         <Route path='*' element={<NotFound/>}/>
 
       </Routes>
