@@ -349,6 +349,55 @@
         height: 25rem;
     }
 
+    .container__job--dist{
+        height: 80rem;
+    }
+
+    .word__cloud{
+        max-width: 100%;
+    }
+    .viz__field{
+        padding: 3rem 5%;
+        overflow-x: auto;
+    }
+    
+    .viz__container{
+        border: none;
+        width: 100rem !important;
+    }
+
+    .chloropeth{
+        width: 50rem !important;
+    }
+
+    .visualisations__hero{
+        height: auto;
+        padding-top: 10rem;
+    }
+
+    .visualisations__hero h1{
+        font-size: 2.5rem;
+    }
+
+    .visualisations__hero ul{
+        flex-direction: column;
+        border-bottom: none;
+    }
+
+    .visualisations__hero ul li{
+        font-size: 1rem;
+        padding-bottom: .25rem;
+    }
+
+    .unique__pie{
+        width: 100%;
+        margin-bottom: 5rem !important;
+    }
+
+    .unique__pie h5{
+        translate: 0% 5rem;
+    }
+
 }
 
 

@@ -3,11 +3,18 @@ import Header from '../components/Header';
 import FixedContact from '../components/FixedContact';
 import Footer from '../components/Footer';
 
-import WordCloud from 'react-d3-cloud';
+import WordCloudContainer from '../components/WordCloudContainer';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import JobTypeDistributionByCategory from '../components/JobTypeDistributionByCategory';
+import CategoryTrends from '../components/CategoryTrends';
+import Chloropeth from '../components/Chloropeth';
+import { countries } from 'country-data';
+import { useAutoAnimate } from '@formkit/auto-animate/react'
+import CategoryDistributionByLocation from '../components/CategoryDistributionByLocation';
 
 function Visualisations(props) {
+    const [parent, enableAnimations] = useAutoAnimate(/* optional config */)
 
     const [tagsData, setTagsData] = useState([]);
     const [jobTypeDistByCategory, setJobTypeDistByCategory] = useState([]);
@@ -19,6 +26,21 @@ function Visualisations(props) {
     const [uniqueJobs, setUniqueJobs] = useState([]);
 
     const [jobs, setJobs] = useState([]);
+
+    const getCountryCode = (countryName) => {
+      // console.log(countries.all[10])
+      const country = countries.all.find(
+        (country) => {
+          if(countryName === "USA" && country.name === "United States") return true;
+          if(countryName === "UK" && country.name === "United Kingdom") return true;
+
+          return country.name.toLowerCase() === countryName.toLowerCase() || country.alpha2 === countryName.toLowerCase()
+        }
+      );
+    
+      return country ? country.alpha3 : "Not Found";
+    };
+    
 
     const handleCountTags = (tags)=>{
 
@@ -36,20 +58,33 @@ function Visualisations(props) {
 
     const getJobTypeDistByCategory = (jobs)=>{
 
-        const jobTypeDistribution = jobs.reduce((distribution, job) => {
-            const { category, job_type } = job;
-            if (!distribution[category]) {
-              distribution[category] = {};
-            }
-            if (!distribution[category][job_type]) {
-              distribution[category][job_type] = 0;
-            }
-            distribution[category][job_type]++;
+        const jobTypeDistribution = {};
+  
+        jobs.forEach((job) => {
+          let { category, job_type } = job;
+          
+          job_type = job_type === "" ? "not_specified" : job_type;
 
-            return distribution;
-          }, {});
+          if (jobTypeDistribution.hasOwnProperty(category)) {
+            if (jobTypeDistribution[category].hasOwnProperty(job_type)) {
+              jobTypeDistribution[category][job_type]++;
+            } else {
+              jobTypeDistribution[category][job_type] = 1;
+            }
+          } else {
+            jobTypeDistribution[category] = { [job_type]: 1 };
+          }
+        });
         
-          return jobTypeDistribution;
+        const formattedDistribution = Object.entries(jobTypeDistribution).map(([category, types]) => {
+          const formattedObject = { category };
+          Object.entries(types).forEach(([jobType, count]) => {
+            formattedObject[jobType] = count;
+          });
+          return formattedObject;
+        });
+        
+        return formattedDistribution;
 
     }
 
@@ -68,24 +103,37 @@ function Visualisations(props) {
         return trends;
       }, {});
       
-      // Calculate count of job listings for each category over time
+
       const categoryCounts = Object.entries(categoryTrends).map(([category, timestamps]) => {
         const counts = {};
         
-        timestamps.forEach((timestamp) => {
-          const monthYear = `${new Date(timestamp).getMonth() + 1}-${new Date(timestamp).getFullYear()}`;
+        timestamps.forEach((timestamp, i) => {
+          const monthYear = `${ new Date(timestamp).toLocaleString('default', { month: 'long' })}-${new Date(timestamp).getFullYear()}`;
       
           if (!counts[monthYear]) {
             counts[monthYear] = 0;
           }
       
           counts[monthYear]++;
+
         });
       
-        return { category, counts };
+        return {category, counts };
       });
 
-      return categoryCounts;
+      const categoryCountsFormatted = categoryCounts.map(({ category, counts }) => {
+        const data = Object.entries(counts).map(([monthYear, count]) => {
+          const [month, year] = monthYear.split('-');
+          const x = `${month}`;
+          const y = count;
+          
+          return { x, y };
+        });
+        
+        return { id: category, data:data.reverse()};
+      });
+      
+      return categoryCountsFormatted;
 
     }
 
@@ -100,7 +148,9 @@ function Visualisations(props) {
             });
             return distribution;
           }, {});
-        return locationDistribution;
+
+
+        return Object.entries(locationDistribution).map((item)=>{ return {id:getCountryCode(item[0]), value:item[1]}});
     }
 
     const getCategoryDistributionByLocation = (jobs)=>{
@@ -140,6 +190,8 @@ function Visualisations(props) {
                     const tempLocationDistribution = getLocationDistribution(testData);
                     const tempCategoryDistributionByLocation = getCategoryDistributionByLocation(testData);
 
+                    
+             
                     setTagsData(tempTags)
                     setJobTypeDistByCategory(tempJobTypeDistByCat)
                     setCategoryTrends(tempCategoryTrends)
@@ -158,7 +210,12 @@ function Visualisations(props) {
 
         fetchJobs();
 
+        
+
       }, [])
+
+
+      
 
 
     
@@ -176,26 +233,37 @@ function Visualisations(props) {
     useEffect(()=>{
         handleCategoryChange(currentCategoryTag);
     }, [currentCategoryTag])
-      
+
+
+
+    const tabs = ["Job Type Distribution","Category Trends","Location Distribution","Category Distribution", "Tags"]  
+    const [selectedTab, setSelectedTab] = useState(0);
 
     return (
         <>
             <Header page="Visualisations"/>
-            <main>
+            <main className='main__with__banner'>              
+                <section className="visualisations__hero">
+                  <h1>Visualisations</h1>
+                  <p>Here you can find some visualisations of the data we have collected.</p>
 
-                <div className='word__cloud'>
-                    {tagsData && <WordCloud 
-                    data={tagsData} 
-                    spiral="rectangular"
-                    rotate={(word) => 0}
-                    padding={5}
-                    
+                  <ul className='flex'>
+                    {tabs.map((tab, key)=>{
+                      return <li key={key} onClick={()=>setSelectedTab(key)} className={selectedTab == key ? "selected__viz--tab" : ""}>{tab}</li>
+                    })
+                    }
 
-                    />}
-                </div>
+                  </ul>
+                </section>
+                <section className='viz__field' ref={parent}>
+                  {selectedTab == 0 && <JobTypeDistributionByCategory data={jobTypeDistByCategory}/>}
+                  {selectedTab == 1 && <CategoryTrends data={categoryTrends}/>}
+                  {selectedTab == 2 && <Chloropeth data={locationDistribution}/>}
+                  {selectedTab == 3 && <CategoryDistributionByLocation data={categoryDistributionByLocation}/>}
+                  {selectedTab == 4 && <WordCloudContainer data={tagsData}/>}
 
 
-                <button onClick={()=>setCurrentCategoryTag("Writing")}>TRY</button>
+                </section>
 
             </main>
             <FixedContact/>
