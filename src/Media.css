@@ -69,18 +69,19 @@
 
     .hero {
         height: auto;
-        flex-direction: column;
-        padding: 15rem 0 5rem;
+        flex-direction: column-reverse;
+        padding: 5rem 0;
     }
 
     .hero__right {
-        width: 75%;
-        margin-bottom: 5rem;
+        width: 100%;
+        position: relative;
+        margin-top: 5rem;
     }
 
     .hero__left {
         width: 100%;
-        padding-top: 10%;
+        transform: translateX(-25%);
     }
 
     .hero__right h1 {
@@ -132,10 +133,12 @@
     section.news .container,
     .testimonials__left {
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         flex-direction: column;
-        text-align: center;
     }
+
+    section.news .section__title,
+    section.news .main__btn{margin-left: 0;}
 
     section.cta .container p {
         width: 90%;

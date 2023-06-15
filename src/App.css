@@ -5,6 +5,8 @@
     --color-gray:#B3BFB6;
     --color-darkgray:#415256;
     --color-blue:#1588FC;
+    --loading-grey: #ededed;
+
 }
 
 *{
@@ -79,6 +81,10 @@ main, footer{
 
 .cursor-pointer{
     cursor: pointer;
+}
+
+.text-center{
+    text-align: center;
 }
 
 .main__btn{
@@ -164,6 +170,7 @@ main, footer{
 .section__desc{
     font-size: 1.15rem;
 }
+
 
 
 /* LOADER */
@@ -424,15 +431,19 @@ header>nav>ul a{
 /* HERO */
 
 .hero{
-    height: 100vh;
-    background-color: var(--color-lightgray);
-
+    height: auto;
+    /* background-color: var(--color-lightgray); */
+    position: relative;
 }
 
-.hero__left,
 .hero__right{
     width: 50%;
     height: 100%;
+
+}
+
+.hero__left{
+    width: 100%;
 }
 
 .hero__left img{
@@ -441,40 +452,14 @@ header>nav>ul a{
     object-position: 0%;
 }
 
-.hero__left{
-    /* background-color: var(--color-darkgray); */
-    position: relative;
-    display: flex;
-    align-items: flex-end;
-}
-
-.hero__left::before{
-    content: "";
-    position: absolute;
-    /* z-index: -1; */
-    width: 75%;
-    height: 75%;
-    right: 0;
-    top: 0;
-    background-color: var(--color-blue);
-}
-
-#hero__video{
-    width: 90%;
-    height: 75%;
-    object-fit: cover;
-    position: relative;
-    
-}
-
-
 
 .hero__right{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 0 5%;
+    padding-left: 5%;
     align-items: flex-start;
+    position: absolute;
 }
 
 .hero__right h1{
@@ -1955,17 +1940,36 @@ li.selected__viz--tab{
 .unique__pie h5{
     background-color: var(--color-lightgray);
     margin-bottom: 1rem;
-    color: var(--color-lightgray);
     border-radius: 2px;
 
 }
 .unique__pie>div{
-    background-color: var(--color-lightgray);
     width: 100%;
     height: 10rem;
     border-radius: 5px;
-
+ 
 }
+
+.unique__pie>div,
+.unique__pie>h5{
+    background-color: var(--loading-grey);
+    color: var(--loading-grey);
+    background: linear-gradient(
+      100deg,
+      rgba(255, 255, 255, 0) 40%,
+      rgba(255, 255, 255, .5) 50%,
+      rgba(255, 255, 255, 0) 60%
+    ) var(--loading-grey);
+    background-size: 200% 100%;
+    background-position-x: 180%;
+    animation: 1s loading ease-in-out infinite;
+}
+
+@keyframes loading {
+    to {
+      background-position-x: -20%;
+    }
+  }
 
 .unique__pie:has(h5~div>div>svg){
     background-color: transparent;

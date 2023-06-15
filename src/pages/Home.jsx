@@ -41,10 +41,7 @@ function Home(props) {
                 </div>
 
                 <div className="hero__left">
-
-                    <video id="hero__video" autoplay="" muted="" loop="" playsinline="">
-                        <source src={hero.video} type="video/mp4"/>
-                    </video> 
+                    <img src={images.heroillustration} alt=""/>
                 </div>
 
             </section>
