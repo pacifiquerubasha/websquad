@@ -6,7 +6,7 @@ import heroillustration from "../assets/illustrations/hero.svg"
 
 import about from "../assets/images/about.jpg"
 import allan from "../assets/images/allan.jpg"
-import code from "../assets/images/code.jpg"
+import code from "../assets/images/code.png"
 import embrace from "../assets/images/embrace.jpg"
 import pac from "../assets/images/pac.jpg"
 import team from "../assets/images/team.jpg"
