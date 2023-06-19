@@ -1,6 +1,6 @@
 
 @media screen and (max-width:1440px){
-    .visualisations__hero{height: 70vh;}
+    .visualisations__hero{height: 70vh !important;}
     
 }
 

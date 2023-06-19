@@ -1,5 +1,4 @@
 import React from 'react';
-import { ResponsiveBump } from '@nivo/bump'
 import { ResponsiveTimeRange } from '@nivo/calendar'
 
 function CategoryTrends({data}) {
