@@ -202,14 +202,14 @@ function Matching(props) {
         <main className='main__contentful'>
             <div className="container flex flex-col">
                 <h1>Matching</h1>
-                <div className="illustration">
-                    <img src={images.hero} alt="Matching"/>
+                <div className="illustration" data-aos="fade-up" data-aos-duration="1000">
+                    <img src={images.matching} alt="Matching"/>
                 </div>
 
                 
 
                 <div ref={topContentRef}></div>
-                <div className="description">                    
+                <div className="description" data-aos="fade-up" data-aos-duration="1000">                    
                         {matchingContent.map((item, index)=>{
                             return (
                                 <>

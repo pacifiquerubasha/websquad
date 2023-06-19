@@ -41,7 +41,7 @@ function CategoryTrends({data}) {
                                 to={new Date().toISOString().split('T')[0]}
                                 emptyColor="#eeeeee"
                                 colors={[ '#61cdbb', '#97e3d5', '#e8c1a0', '#f47560' ]}
-                                margin={{ top: 40, right: 40, bottom: 100, left: 40 }}
+                                margin={{ top: 40, right: 0, bottom: 60, left: 0 }}
                                 dayBorderWidth={2}
                                 dayBorderColor="#ffffff"
                                 legends={[

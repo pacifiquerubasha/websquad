@@ -10,7 +10,72 @@ function About(props) {
     useEffect(()=>{
         document.title = "About | JobMagnetix"
     }, [])
+
+    const teamMembers = [
+        {
+        name: 'Pacifique Rubasha',
+        role: 'Frontend Developer',
+        image: images.pac,
+        linkedin: 'https://www.linkedin.com/in/pacifiquerubasha/',
+        github: '',
+        instagram: '',
+        facebook: '',
+        },
+        {
+        name: 'Emmanuel Okorwoit',
+        role: 'Project Manager',
+        image:  images.hero,
+        linkedin: 'https://www.linkedin.com/in/emmanuel-okorwoit/',
+        github: '',
+        instagram: '',
+        facebook: '',
+        },
+        {
+        name: 'Hallan Warigia',
+        role: 'Backend Developer',
+        image:  images.allan,
+        linkedin: 'https://www.linkedin.com/in/hallan-warigia/',
+        github: '',
+        instagram: '',
+        facebook: '',
+        },
+        {
+        name: 'Funke Aderoju',
+        role: 'Content Writer',
+        image:  images.hero,
+        linkedin: 'https://www.linkedin.com/in/funke-aderoju/',
+        github: '',
+        instagram: '',
+        facebook: '',
+        },
+        {
+        name: 'Wamuyu Gitonga',
+        role: 'Project Manager',
+        image:  images.hero,
+        linkedin: 'https://www.linkedin.com/in/wamuyu-gitonga/',
+        github: '',
+        instagram: '',
+        facebook: '',
+        },
+        {
+        name: 'Sumaya Abdulramah',
+        role: 'Digital News Writer',
+        image:  images.hero,
+        linkedin: 'https://www.linkedin.com/in/sumaya-abdulramah/',
+        github: '',
+        instagram: '',
+        facebook: '',
+        },
+        ];
     
+
+    const [success, setSuccess] = useState(false);
+    useEffect(() => {
+        if ( window.location.search.includes('success=true') ) {
+          setSuccess(true);
+        }
+    }, []);
+
     return (
         <>
 
@@ -18,7 +83,7 @@ function About(props) {
         
         <main className='main__with__banner'>
             
-            <Hero image={images.hero} title="About Us" />
+            <Hero image={images.code} title="About Us" />
 
             <section className="story">
                 <div className="container flex">
@@ -62,8 +127,8 @@ function About(props) {
 
                     </div>
 
-                    <div className="story__right">
-                        <img src={images.hero} alt="" loading='lazy'/>
+                    <div className="story__right" data-aos="fade-up" data-aos-duration="1000">
+                        <img src={images.about} alt="" loading='lazy'/>
                     </div>
                 </div>
             </section>
@@ -71,12 +136,12 @@ function About(props) {
             <section className="services">
                 <div className="container flex flex-col">
                     <h3 className='section__title' data-aos="fade-down" data-aos-duration="1000">Our <span className='text-blue'>Services</span> </h3>
-                    <p className='section__desc text-center'>
+                    <p className='section__desc text-center' data-aos="fade-down" data-aos-duration="1000">
                     By offering these services, we aim to support job seekers in every stage of their global career exploration, 
                     from searching for relevant opportunities to expanding their professional network and acquiring the skills necessary
                      for success in an international context.
                     </p>
-                    <div className="service flex">
+                    <div className="service flex" data-aos="zoom-in" data-aos-duration="1000">
                         <div>
                             <i className='fas fa-user'></i>
                             <h5>Job Search Assistance</h5>
@@ -122,84 +187,24 @@ function About(props) {
                     </p>
 
                     <div className="team__members flex">
-                        <div className="member">
-                            <img src={images.hero} alt="" loading='lazy'/>
-                            <div className="member__info">
-                                <div className="socials">
-                                    <i className='fab fa-facebook'></i>
-                                    <i className='fab fa-twitter'></i>
-                                    <i className='fab fa-instagram'></i>
-                                    <i className='fab fa-github'></i>
+                        {
+                            teamMembers.map((member, index) => (
+                                <div className="member" data-aos="fade-up" data-aos-duration="1000">
+                                    <img src={member.image} alt="" loading='lazy'/>
+                                    <div className="member__info">
+                                        <div className="socials">
+                                            <a href={member.facebook} target='_blank'><i className='fab fa-facebook'></i></a>
+                                            <a href={member.linkedin} target='_blank'><i className='fab fa-linkedin'></i></a>
+                                            <a href={member.instagram} target='_blank'><i className='fab fa-instagram'></i></a>
+                                            <a href={member.github} target='_blank'><i className='fab fa-github'></i></a>
+                                        </div>
+                                        <h5>{member.name}</h5>
+                                        <p>{member.role}</p>
+                                    </div>
                                 </div>
-                                <h5>Pacifique Rubasha</h5>
-                                <p>Frontend Developer</p>
-                            </div>
-                        </div>
-                        <div className="member">
-                            <img src={images.hero} alt="" loading='lazy'/>
-                            <div className="member__info">
-                                <div className="socials">
-                                    <i className='fab fa-facebook'></i>
-                                    <i className='fab fa-twitter'></i>
-                                    <i className='fab fa-instagram'></i>
-                                    <i className='fab fa-github'></i>
-                                </div>
-                                <h5>Emmanuel Okorwoit</h5>
-                                <p>Project Manager</p>
-                            </div>
-                        </div>
-                        <div className="member">
-                            <img src={images.hero} alt="" loading='lazy'/>
-                            <div className="member__info">
-                                <div className="socials">
-                                    <i className='fab fa-facebook'></i>
-                                    <i className='fab fa-twitter'></i>
-                                    <i className='fab fa-instagram'></i>
-                                    <i className='fab fa-github'></i>
-                                </div>
-                                <h5>Hallan Warigia</h5>
-                                <p>Backend Developer</p>
-                            </div>
-                        </div>
-                        <div className="member">
-                            <img src={images.hero} alt="" />
-                            <div className="member__info">
-                                <div className="socials">
-                                    <i className='fab fa-facebook'></i>
-                                    <i className='fab fa-twitter'></i>
-                                    <i className='fab fa-instagram'></i>
-                                    <i className='fab fa-github'></i>
-                                </div>
-                                <h5>Funke Aderoju</h5>
-                                <p>Content Writer</p>
-                            </div>
-                        </div>
-                        <div className="member">
-                            <img src={images.hero} alt="" loading='lazy'/>
-                            <div className="member__info">
-                                <div className="socials">
-                                    <i className='fab fa-facebook'></i>
-                                    <i className='fab fa-twitter'></i>
-                                    <i className='fab fa-instagram'></i>
-                                    <i className='fab fa-github'></i>
-                                </div>
-                                <h5>Wamuyu Gitonga</h5>
-                                <p>Project Manager</p>
-                            </div>
-                        </div>
-                        <div className="member">
-                            <img src={images.hero} alt="" loading='lazy'/>
-                            <div className="member__info">
-                                <div className="socials">
-                                    <i className='fab fa-facebook'></i>
-                                    <i className='fab fa-twitter'></i>
-                                    <i className='fab fa-instagram'></i>
-                                    <i className='fab fa-github'></i>
-                                </div>
-                                <h5>Sumaya Abdulramah</h5>
-                                <p>Digital news writers</p>
-                            </div>
-                        </div>
+                            ))
+                        }
+                        
                     </div>
                 </div>
             </section>
@@ -213,16 +218,19 @@ function About(props) {
 
                     <div className="partners__list flex">
                         <div className="partner">
-                            <img src={images.react} alt="" loading='lazy'/>
-                            <span>ReactJs</span>
+                            <a href="https://www.alueducation.com/" target='_blank'>
+                                <img src={images.alu} alt="" loading='lazy'/>
+                            </a>
                         </div>
                         <div className="partner">
-                            <img src={images.react} alt="" loading='lazy'/>
-                            <span>ReactJs</span>
+                            <a href="https://www.gcu.ac.uk/" target='_blank'>
+                                <img src={images.gcu} alt="" loading='lazy'/>
+                            </a>
                         </div>
                         <div className="partner">
-                            <img src={images.react} alt="" loading='lazy'/>
-                            <span>ReactJs</span>
+                            <a href="https://remotive.com/" target='_blank'>
+                                <img src={images.remotive} alt="" loading='lazy'/>
+                            </a>
                         </div>
                         
                     </div>
@@ -233,19 +241,29 @@ function About(props) {
             <section className="contact">
                 {/* <img src={images.hero} alt="" /> */}
                 <div className="contact__container">
-                    <form action="">
+                    <form name="contact" 
+                        method="POST" 
+                        data-netlify="true">
+                                 
+                        <input type="hidden" name="form-name" value="contact" />
+
                         <h3 className='section__title' data-aos="fade-down" data-aos-duration="1000">Contact <span className='text-blue'>Us</span> </h3>
+                       
+                        {success && (
+                            <p style={{ color: "green" }}>Thanks for your message! </p>
+                        )}
+
                         <p className='section__desc'>
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, quod!
                         </p>
 
                         <div className="form__group flex flex-col">
                             <label htmlFor="name">Name</label>
-                            <input type="text" id="name" />
+                            <input type="text" id="name" name='name' />
                         </div>
                         <div className="form__group flex flex-col">
                             <label htmlFor="email">Email</label>
-                            <input type="email" id="email" />
+                            <input type="email" id="email" name='email'/>
                         </div>
                         <div className="form__group flex flex-col">
                             <label htmlFor="message">Message</label>

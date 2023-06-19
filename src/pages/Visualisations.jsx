@@ -54,8 +54,6 @@ function Visualisations(props) {
             return obj;
           }, {});
 
-          console.log("XY", Object.entries(countObj).map(([item, count]) => ({ text: item, value: count })))
-
         return Object.entries(countObj).map(([item, count]) => ({ text: item, value: count }));  
     }
 
@@ -201,6 +199,8 @@ function Visualisations(props) {
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(()=>{
+
+        document.title = "Visualizations | JobMagnetix"
        
         const fetchJobs = async()=>{
             const api = "https://remotive.com/api/remote-jobs";
@@ -243,10 +243,6 @@ function Visualisations(props) {
         
 
       }, [])
-
-
-      
-
 
     
     const [currentCategoryTag, setCurrentCategoryTag] = useState();

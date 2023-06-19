@@ -19,13 +19,13 @@ function News(props) {
         <Header page="News"/>
 
         <main className='main__news'>
-            <h1>The <span className='text-blue'>Blog</span> </h1>
+            <h1 data-aos="fade-down" data-aos-duration="1000">The <span className='text-blue'>Blog</span> </h1>
 
             <section className="intro flex">
-                <div className="intro__left">
+                <div className="intro__left" data-aos="fade-right" data-aos-duration="1000">
                     <img src={images.hero} alt="" />
                 </div>
-                <div className="intro__right">
+                <div className="intro__right" data-aos="fade-left" data-aos-duration="1000">
                     <span>Lorem, ipsum dolor.</span>
                     <h2>Lorem ipsum dolor sit amet consectetur</h2>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus exercitationem quo impedit architecto quae, ea minus natus repellat illum consequatur!</p>
@@ -38,7 +38,7 @@ function News(props) {
                 </div>
             </section>
 
-            <section className='news__list'>
+            <section className='news__list' data-aos="fade-up" data-aos-duration="1000">
                 <div className="container flex flex-col">
                     <h2 className='uppercase text-gray'>NEWS</h2>
 

@@ -1,8 +1,9 @@
 import React from 'react';
 
-function Loading(props) {
-    return (
-        <div class="lds-roller">
+function Loading({isMain}) {
+
+    const Loader = ()=>(
+        <div className="lds-roller">
             <div></div>
             <div></div>
             <div></div>
@@ -12,6 +13,19 @@ function Loading(props) {
             <div></div>
             <div></div>
         </div>
+    )
+    return (
+        <>
+            {isMain? 
+                <div className='loader__main'>
+
+                    <Loader/>
+
+                </div>:
+
+                <Loader/>
+            }
+        </>
     );
 }
 

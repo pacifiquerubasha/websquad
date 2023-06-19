@@ -1,5 +1,6 @@
 
 @media screen and (max-width:1440px){
+    .visualisations__hero{height: 70vh;}
     
 }
 
@@ -9,7 +10,8 @@
 
 
 @media screen and (max-width:1024px){
-    .hero__right h1 {
+    .hero__right h1,
+    .visualisations__hero h1 {
         font-size: 3.5rem;
         line-height: 3.5rem;
     }
@@ -361,12 +363,21 @@
     }
     .viz__field{
         padding: 3rem 5%;
-        overflow-x: auto;
     }
     
     .viz__container{
         border: none;
+        overflow-x: auto;
+        overflow-y: hidden;
+    }
+
+    .unique__viz--cat{
+        width: 100% !important;
+    }
+
+    .viz__container>div{
         width: 100rem !important;
+
     }
 
     .chloropeth{
@@ -449,7 +460,8 @@
         padding-top: 5rem;
     }
 
-    .news__text__left>h2{
+    .news__text__left>h2,
+    .unique__pie:has(h5~div>div>svg) h5, .unique__viz--cat h5{
         font-size: 1.5rem;
     }
 

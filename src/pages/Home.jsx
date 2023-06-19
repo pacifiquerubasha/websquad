@@ -56,9 +56,9 @@ function Home(props) {
                     </div>
                     <div className="about__right flex" data-aos="fade-left" data-aos-duration="1000">
 
-                        {about.aboutBoxes.map((box)=>{
+                        {about.aboutBoxes.map((box, key)=>{
                             return(
-                                <div className="about__box">
+                                <div key={key} className="about__box">
                                     <div className="box__header flex">
                                         <i className={box.icon}></i>
                                         <h5>{box.box_title}</h5>
@@ -75,7 +75,7 @@ function Home(props) {
                 </div>
             </section>
 
-            <section className="ceo">
+            <section className="ceo" data-aos="zoom-in" data-aos-duration="1000">
                 <div className="container flex flex-col">
                     <p>
                         {ceo.message}
@@ -115,7 +115,7 @@ function Home(props) {
 
             <section className="section3">
                 <div className="container flex">
-                    <div className="section3__left flex flex-col">
+                    <div className="section3__left flex flex-col" data-aos="fade-right" data-aos-duration="1000">
                         <h3 className='section__title'>
                             {splitTitle(section3.title)}
                         </h3>
@@ -123,9 +123,9 @@ function Home(props) {
                             {section3.subtitle}
                         </p>
                         {
-                            section3.stats.map((stat)=>{
+                            section3.stats.map((stat, key)=>{
                                 return(
-                                    <div className="stat">
+                                    <div key={key} className="stat">
                                         <p>{stat.total}</p>
                                         <span>{stat.label}</span>
                                     </div>
@@ -136,10 +136,10 @@ function Home(props) {
 
                     </div>
 
-                    <div className="section3__right flex flex-col">
-                        {section3.section3Boxes.map((item)=>{
+                    <div className="section3__right flex flex-col" data-aos="fade-left" data-aos-duration="1000">
+                        {section3.section3Boxes.map((item, key)=>{
                             return(
-                                <div className="section3_box">
+                                <div key={key} className="section3_box">
                                     <i className={item.icon}></i>
                                     <div>
                                         <h5>{item.title}</h5>
@@ -157,23 +157,23 @@ function Home(props) {
             <section className="news">
                 <div className="container flex flex-col">
 
-                    <h3 className='section__title'>
+                    <h3 className='section__title' data-aos="fade-down" data-aos-duration="1000">
                         {splitTitle(news.title)}
                     </h3>
-                    <p className='section__desc'>
+                    <p className='section__desc' data-aos="fade-down" data-aos-duration="1000">
                         {news.subtitle}
                     </p>
-                    <a href="" className='main__btn'>                        
+                    <a href="" className='main__btn' data-aos="fade-down" data-aos-duration="1000">                        
                         <span>{news.cta}</span>
                         <div>
                             <i className='fas fa-arrow-right'></i>
                         </div>
                     </a>
 
-                    <div className="news__grid flex">
-                        {news.newsItems.map((item)=>{
+                    <div className="news__grid flex" data-aos="fade-up" data-aos-duration="1000">
+                        {news.newsItems.map((item, key)=>{
                             return(
-                                <NewsTemplate item={item}/>
+                                <NewsTemplate key={key} item={item}/>
                             )
                         })
 
@@ -189,7 +189,7 @@ function Home(props) {
             
 
             <section className="cta">
-                <div className="container flex flex-col">
+                <div className="container flex flex-col" data-aos="zoom-in" data-aos-duration="1000">
                     <p>{cta.question}</p>
                     <h4>{cta.title}</h4>
                     <p>
@@ -207,7 +207,7 @@ function Home(props) {
             </section>
 
             <section className="testimonials">
-                <div className="container flex">
+                <div className="container flex" data-aos="fade-up" data-aos-duration="1000">
                     <div className="testimonials__left">
                         <h3 className='section__title'>
                             {splitTitle(testimonials.title)}
@@ -218,9 +218,9 @@ function Home(props) {
                     </div>
                     <div className="testimonials__right flex">
 
-                        {testimonials.testimonials.map((testimonial)=>{
+                        {testimonials.testimonials.map((testimonial, key)=>{
                             return(
-                                <div className="testimonial flex flex-col">
+                                <div key={key} className="testimonial flex flex-col">
                                     <img src={testimonial.image} alt="" loading='lazy'/>
                                     <p>
                                         {testimonial.message}

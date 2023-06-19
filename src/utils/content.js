@@ -72,7 +72,7 @@ export const ceo = {
  */
 
 export const section2 = {
-    image:images.hero,
+    image:images.embrace,
     title:"Embrace a Borderless Future",
     subtitle:`Join our global community of job seekers, where borders fade and opportunities abound. 
     Empower your career, embrace diversity, and take the leap towards a limitless future. 

@@ -16,7 +16,7 @@ function Contact(props) {
         <main className='main__contact'>            
         
             <form action="" className='contact__form'>
-                <h3 className='section__title' data-aos="fade-down" data-aos-duration="1000">Contact <span className='text-blue'>Us</span> </h3>
+                <h3 className='section__title'>Contact <span className='text-blue'>Us</span> </h3>
                 <p className='section__desc'>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, quod!
                 </p>
