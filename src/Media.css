@@ -424,6 +424,11 @@
         width: 100%;
     }
 
+    .hero__left{
+        scale: 1.5;
+        transform: translateX(-20%);
+    }
+
     header {
         padding: 1.5rem 5% 1.5rem;
     }

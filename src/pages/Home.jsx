@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react';
 import { images } from '../utils/images';
 import Header from '../components/Header';
-import Footer from '../components/Footer';
-import { about, ceo, cta, hero, news, section2, section3, testimonials } from '../utils/content';
 import FixedContact from '../components/FixedContact';
-import NewsTemplate from '../components/NewsTemplate';
+import { about, ceo, cta, hero, news, section2, section3, testimonials } from '../utils/content';
+
+
+const Footer = React.lazy(()=>import('../components/Footer'));
+const NewsTemplate = React.lazy(()=>import('../components/NewsTemplate'));
 
 function Home(props) {
 

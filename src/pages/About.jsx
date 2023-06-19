@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import Header from '../components/Header';
-import Footer from '../components/Footer';
 import { images } from '../utils/images';
 import FixedContact from '../components/FixedContact';
 import Hero from '../components/Hero';
-import ContactForm from '../components/ContactForm';
+
+
+const ContactForm = React.lazy(()=>import('../components/ContactForm'));
+const Footer = React.lazy(()=>import('../components/Footer'));
 
 function About(props) {
 
@@ -146,7 +148,7 @@ function About(props) {
                             <img src={images.hero} alt='' loading='lazy'/>
                         </div>
                     </div>
-                    <div className="service flex">
+                    <div className="service flex"  data-aos="zoom-in" data-aos-duration="1000">
                         <div className='service__image'>
                             <img src={images.hero} alt='' loading='lazy'/>
                         </div>
@@ -157,7 +159,7 @@ function About(props) {
 
                         </div>
                     </div>
-                    <div className="service flex">
+                    <div className="service flex"  data-aos="zoom-in" data-aos-duration="1000">
                         <div>
                             <i className='fas fa-user'></i>
                             <h5>Industry Insights</h5>
