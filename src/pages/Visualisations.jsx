@@ -12,6 +12,7 @@ import Chloropeth from '../components/Chloropeth';
 import { countries } from 'country-data';
 import { useAutoAnimate } from '@formkit/auto-animate/react'
 import CategoryDistributionByLocation from '../components/CategoryDistributionByLocation';
+import Loading from '../components/Loading';
 
 function Visualisations(props) {
     const [parent, enableAnimations] = useAutoAnimate(/* optional config */)
@@ -52,6 +53,8 @@ function Visualisations(props) {
             }
             return obj;
           }, {});
+
+          console.log("XY", Object.entries(countObj).map(([item, count]) => ({ text: item, value: count })))
 
         return Object.entries(countObj).map(([item, count]) => ({ text: item, value: count }));  
     }
@@ -137,6 +140,31 @@ function Visualisations(props) {
 
     }
 
+    const getCategoriesDailyData = (jobs)=>{
+      const categoryTrends = jobs.reduce((trends, job) => {
+        const category = job.category;
+        const timestamp = new Date(job.publication_date).toISOString().split('T')[0];
+      
+        if (!trends[category]) {
+          trends[category] = [];
+        }
+
+        const currentDateExists = trends[category].find((data)=>data.day === timestamp);
+        if(!currentDateExists){
+          trends[category].push({value:1, day:timestamp})
+        }
+
+        else{
+          currentDateExists.value++;
+        }
+      
+      
+        return trends;
+      }, {});
+
+      return categoryTrends;
+    }
+
     const getLocationDistribution = (jobs)=>{
         const locationDistribution = jobs.reduce((distribution, job) => {
             const locations = job.candidate_required_location.split(',').map((location) => location.trim());
@@ -170,12 +198,14 @@ function Visualisations(props) {
         return categoryDistributionByLocation;
     }
 
-    
+    const [isLoading, setIsLoading] = useState(false);
+
     useEffect(()=>{
        
         const fetchJobs = async()=>{
             const api = "https://remotive.com/api/remote-jobs";
             
+            setIsLoading(true)
             const res = await fetch(api);
     
             if(res.ok){
@@ -186,11 +216,11 @@ function Visualisations(props) {
 
                     const tempTags = handleCountTags(testData.map((job)=>job.tags).flat(1));
                     const tempJobTypeDistByCat = getJobTypeDistByCategory(testData);
-                    const tempCategoryTrends = getCategoryTrends(testData);
+                    const tempCategoryTrends = getCategoriesDailyData(testData);
                     const tempLocationDistribution = getLocationDistribution(testData);
                     const tempCategoryDistributionByLocation = getCategoryDistributionByLocation(testData);
 
-                    
+                    console.log("AD", tempTags)
              
                     setTagsData(tempTags)
                     setJobTypeDistByCategory(tempJobTypeDistByCat)
@@ -201,11 +231,11 @@ function Visualisations(props) {
 
                     setCategories(Array.from(new Set(testData.map((job)=>job.category))))
                     setUniqueJobs(Array.from(new Set(testData.map((job)=>job.title))))
-
                 }
-    
+                setIsLoading(false)
             }
-    
+
+            else setIsLoading(false)
         }
 
         fetchJobs();
@@ -256,11 +286,24 @@ function Visualisations(props) {
                   </ul>
                 </section>
                 <section className='viz__field' ref={parent}>
-                  {selectedTab == 0 && <JobTypeDistributionByCategory data={jobTypeDistByCategory}/>}
-                  {selectedTab == 1 && <CategoryTrends data={categoryTrends}/>}
-                  {selectedTab == 2 && <Chloropeth data={locationDistribution}/>}
-                  {selectedTab == 3 && <CategoryDistributionByLocation data={categoryDistributionByLocation}/>}
-                  {selectedTab == 4 && <WordCloudContainer data={tagsData}/>}
+                  {
+                    isLoading ? 
+                    <div className='loading__container'>
+                      <Loading/>
+                      
+                    </div>
+                    
+                    :
+                    <>
+                      {selectedTab == 0 && <JobTypeDistributionByCategory data={jobTypeDistByCategory}/>}
+                      {selectedTab == 1 && <CategoryTrends data={categoryTrends}/>}
+                      {selectedTab == 2 && <Chloropeth data={locationDistribution}/>}
+                      {selectedTab == 3 && <CategoryDistributionByLocation data={categoryDistributionByLocation}/>}
+                      {selectedTab == 4 && <WordCloudContainer data={tagsData}/>}
+                    
+                    </>
+
+                  }
 
 
                 </section>

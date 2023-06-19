@@ -6,6 +6,7 @@ import { images } from '../utils/images';
 import ReactPaginate from 'react-paginate';
 import JobDetails from '../components/JobDetails';
 import { daysDiff } from '../utils/utils';
+import Loading from '../components/Loading';
 
 function Jobs(props) {
 
@@ -199,16 +200,7 @@ function Jobs(props) {
 
                             {isLoading ?
                             
-                                <div class="lds-roller">
-                                    <div></div>
-                                    <div></div>
-                                    <div></div>
-                                    <div></div>
-                                    <div></div>
-                                    <div></div>
-                                    <div></div>
-                                    <div></div>
-                                </div>:
+                                <Loading/>:
 
                                 <div className="filters__list flex flex-col">
 

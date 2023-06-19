@@ -1930,6 +1930,18 @@ li.selected__viz--tab{
     border-radius: 10px;
 }
 
+.viz__desc{
+    margin: 5rem auto 0;
+    width: 768px;
+    max-width: 100%;
+}
+
+
+.viz__desc p{
+    margin-top: 1rem;
+    font-size: 1.15rem;
+}
+
 
 .unique__pie{
     width: 48%;
@@ -1984,7 +1996,8 @@ li.selected__viz--tab{
     border-radius: unset;
 }
 
-.unique__pie:has(h5~div>div>svg) h5{
+.unique__pie:has(h5~div>div>svg) h5,
+.unique__viz--cat h5{
     text-align: center;
     font-size: 2rem;
     font-weight: 500;
@@ -1997,6 +2010,23 @@ li.selected__viz--tab{
     height: auto;
     flex-wrap: wrap;
     justify-content: space-between;
+}
+
+.viz__categories{
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.unique__viz--cat{
+    height: 20rem !important;
+    width: 45% !important;
+    margin-bottom: 7.5rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
 }
 
 .search__loc--form{
@@ -2023,4 +2053,10 @@ li.selected__viz--tab{
 
 button[type="submit"]{
     cursor: pointer;
+}
+
+.loading__container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
