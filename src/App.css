@@ -1181,6 +1181,7 @@ section.contact img{
     padding: 2rem;
 }
 
+
 .form__group:nth-of-type(1){
     margin-top: 3rem;
 }
@@ -1199,6 +1200,13 @@ section.contact img{
     font-size: 1.25rem;
     border: none;
     border-bottom: 1px solid var(--color-gray);
+}
+
+.success__message{
+    background-color: rgba(0, 255, 0, 0.3);
+    padding: .5rem;
+    margin-top: 2rem;
+    border-radius: 5px;
 }
 
 button[type="submit"]{

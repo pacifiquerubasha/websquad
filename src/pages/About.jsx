@@ -4,6 +4,7 @@ import Footer from '../components/Footer';
 import { images } from '../utils/images';
 import FixedContact from '../components/FixedContact';
 import Hero from '../components/Hero';
+import ContactForm from '../components/ContactForm';
 
 function About(props) {
 
@@ -68,27 +69,6 @@ function About(props) {
         },
         ];
     
-
-    const [success, setSuccess] = useState(false);
-    useEffect(() => {
-        if ( window.location.search.includes('success=true') ) {
-          setSuccess(true);
-        }
-    }, []);
-
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // let myForm = document.getElementById("pizzaOrder");
-        let formData = new FormData(e.target);
-        fetch("/", {
-          method: "POST",
-          headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          body: new URLSearchParams(formData).toString(),
-        })
-          .then(() => console.log("Form successfully submitted"))
-          .catch((error) => alert(error));
-      };
 
     return (
         <>
@@ -255,44 +235,7 @@ function About(props) {
             <section className="contact">
                 {/* <img src={images.hero} alt="" /> */}
                 <div className="contact__container">
-                    <form 
-                        onSubmit={handleSubmit}
-                        name="contact" 
-                        method="POST" 
-                        data-netlify="true">
-                                 
-                        <input type="hidden" name="form-name" value="contact" />
-
-                        <h3 className='section__title' data-aos="fade-down" data-aos-duration="1000">Contact <span className='text-blue'>Us</span> </h3>
-                       
-                        {success && (
-                            <p style={{ color: "green" }}>Thanks for your message! </p>
-                        )}
-
-                        <p className='section__desc'>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, quod!
-                        </p>
-
-                        <div className="form__group flex flex-col">
-                            <label htmlFor="name">Name</label>
-                            <input type="text" id="name" name='name' />
-                        </div>
-                        <div className="form__group flex flex-col">
-                            <label htmlFor="email">Email</label>
-                            <input type="email" id="email" name='email'/>
-                        </div>
-                        <div className="form__group flex flex-col">
-                            <label htmlFor="message">Message</label>
-                            <textarea name="message" id="message" cols="30" rows="5">
-
-                            </textarea>
-                        </div>
-
-                        <button type='submit' >
-                            Send Message
-                        </button>
-
-                    </form>
+                    <ContactForm/>
                 </div>
             </section>
 
