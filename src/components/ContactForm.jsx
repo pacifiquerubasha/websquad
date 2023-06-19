@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-function ContactForm(props) {
+function ContactForm({isContactPage}) {
     
     const [success, setSuccess] = useState(false);
 
@@ -21,7 +21,9 @@ function ContactForm(props) {
             onSubmit={handleSubmit}
             name="contact" 
             method="POST" 
-            data-netlify="true">
+            data-netlify="true"
+            className={`${isContactPage && "contact__form"}`}
+            >
                         
             <input type="hidden" name="form-name" value="contact" />
 
@@ -31,7 +33,7 @@ function ContactForm(props) {
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, quod!
             </p>
 
-            {!success && (
+            {success && (
                 <p className='success__message'>Thanks for your message! </p>
             )}
 

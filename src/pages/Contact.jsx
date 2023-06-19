@@ -15,8 +15,8 @@ function Contact(props) {
         <Header page="Contact"/>       
         
         <main className='main__contact'>            
-        
-            <ContactForm/>
+            
+            <ContactForm isContactPage={true}/>
 
         </main>
 
