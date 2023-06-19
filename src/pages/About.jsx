@@ -76,6 +76,20 @@ function About(props) {
         }
     }, []);
 
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        // let myForm = document.getElementById("pizzaOrder");
+        let formData = new FormData(e);
+        fetch("/", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: new URLSearchParams(formData).toString(),
+        })
+          .then(() => console.log("Form successfully submitted"))
+          .catch((error) => alert(error));
+      };
+
     return (
         <>
 
@@ -241,7 +255,9 @@ function About(props) {
             <section className="contact">
                 {/* <img src={images.hero} alt="" /> */}
                 <div className="contact__container">
-                    <form name="contact" 
+                    <form 
+                        onSubmit={handleSubmit}
+                        name="contact" 
                         method="POST" 
                         data-netlify="true">
                                  
