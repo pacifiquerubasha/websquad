@@ -3,14 +3,14 @@ import Header from '../components/Header';
 import FixedContact from '../components/FixedContact';
 import Footer from '../components/Footer';
 import { images } from '../utils/images';
-import { news } from '../utils/content';
-import NewsTemplate from '../components/NewsTemplate';
+import { articles } from '../utils/content';
+import NewsTemplate from '../components/ArticlesTemplate';
 
-function News(props) {
+function Blog(props) {
 
     
     useEffect(()=>{
-        document.title = "News | JobMagnetix"
+        document.title = "Blog | JobMagnetix"
     }, [])
     
     return (
@@ -26,11 +26,11 @@ function News(props) {
                     <img src={images.hero} alt="" />
                 </div>
                 <div className="intro__right" data-aos="fade-left" data-aos-duration="1000">
-                    <span>Lorem, ipsum dolor.</span>
-                    <h2>Lorem ipsum dolor sit amet consectetur</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus exercitationem quo impedit architecto quae, ea minus natus repellat illum consequatur!</p>
-                    <a href="" className='main__btn'>                        
-                        <span>Read</span>
+                    <span>{articles.newsItems[3].author}</span>
+                    <h2>{articles.newsItems[3].title}</h2>
+                    <p>{articles.newsItems[3].content}</p>
+                    <a href={`/blog/${articles.newsItems[3].id}`} className='main__btn'>                        
+                        <span>Read More</span>
                         <div>
                             <i className='fas fa-arrow-right'></i>
                         </div>
@@ -43,7 +43,7 @@ function News(props) {
                     <h2 className='uppercase text-gray'>NEWS</h2>
 
                     <div className="news__grid flex">
-                        {news.newsItems.map((item)=>{
+                        {articles.newsItems.map((item)=>{
                             return <NewsTemplate item={item}/>
                         })
 
@@ -65,4 +65,4 @@ function News(props) {
     );
 }
 
-export default News;
+export default Blog;

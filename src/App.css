@@ -502,6 +502,7 @@ header>nav>ul a{
     z-index: -1;
     top: 30%;
     left: -3%;
+    opacity: .5;
 }
 
 .about__left{
@@ -568,6 +569,7 @@ header>nav>ul a{
     z-index: -1;
     top: 15%;
     right: 25%;
+    opacity: .5;
 }
 
 .section2__right .section__desc{
@@ -712,9 +714,13 @@ header>nav>ul a{
 .news__content h5{
     margin-top: 1rem;
     font-size: 1.15rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-.news__content p{
+.news__content p,
+.intro__right p{
     display: -webkit-box;
     max-width: 200px;
     -webkit-line-clamp: 3;
@@ -722,6 +728,7 @@ header>nav>ul a{
     overflow: hidden;
     margin-bottom: 1.5rem;
 }
+
 
 .news__btn{
     background-color: var(--color-blue);
@@ -1274,12 +1281,17 @@ button[type="submit"]{
 }
 
 .intro__right h2{
-    font-size:2.75rem
+    font-size:2.75rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .intro__right p{
     font-size: 1.25rem;
     margin: 2rem 0;
+    max-width: 100% !important;
 }
 
 .news__list h2{
@@ -1318,6 +1330,7 @@ button[type="submit"]{
 .news__text__left .tags{
     display: flex;
     gap: 1rem;
+    flex-wrap: wrap;
 }
 
 .news__text__left .tags span{

@@ -9,8 +9,8 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 const Home = React.lazy(()=>import('./pages/Home'));
 const About = React.lazy(()=>import('./pages/About'));
 const Contact = React.lazy(()=>import('./pages/Contact'));
-const News = React.lazy(()=>import('./pages/News'));
-const NewsDetails = React.lazy(()=>import('./pages/NewsDetails'));
+const Blog = React.lazy(()=>import('./pages/Blog'));
+const ArticleDetails = React.lazy(()=>import('./pages/ArticleDetails'));
 const Jobs = React.lazy(()=>import('./pages/Jobs'));
 const Visualisations = React.lazy(()=>import('./pages/Visualisations'));
 const NotFound = React.lazy(()=>import('./pages/NotFound'));
@@ -31,8 +31,8 @@ function App() {
         <Routes>
           <Route path='/' element={<Home/>}/>
           <Route path='/about' element={<About/>}/>
-          <Route path='/news' element={<News/>}/>
-          <Route path='/news/:id' element={<NewsDetails/>}/>
+          <Route path='/blogs' element={<Blog/>}/>
+          <Route path='/blog/:id' element={<ArticleDetails/>}/>
           <Route path='/matching' element={<Matching/>}/>
           <Route path='/visualisations' element={<Visualisations/>}/>
           <Route path='/contact' element={<Contact/>}/>

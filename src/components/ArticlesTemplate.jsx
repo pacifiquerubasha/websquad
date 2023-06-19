@@ -1,6 +1,6 @@
 import React from 'react';
 
-function NewsTemplate({item}) {
+function ArticlesTemplate({item}) {
     return (
         <div className="news__box">
             <div className="news__img w-full">
@@ -14,7 +14,7 @@ function NewsTemplate({item}) {
                 <h5>{item.title}</h5>
                 <p>{item.content}</p>
                 
-                <a href={item.link} className="news__btn">
+                <a href={`blog/${item.id}`} className="news__btn">
                     Read More
                 </a>
             </div>
@@ -22,4 +22,4 @@ function NewsTemplate({item}) {
     );
 }
 
-export default NewsTemplate;
+export default ArticlesTemplate;

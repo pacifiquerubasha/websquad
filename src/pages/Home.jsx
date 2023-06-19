@@ -2,11 +2,11 @@ import React, { useEffect } from 'react';
 import { images } from '../utils/images';
 import Header from '../components/Header';
 import FixedContact from '../components/FixedContact';
-import { about, ceo, cta, hero, news, section2, section3, testimonials } from '../utils/content';
+import { about, ceo, cta, hero, articles, section2, section3, testimonials } from '../utils/content';
 
 
 const Footer = React.lazy(()=>import('../components/Footer'));
-const NewsTemplate = React.lazy(()=>import('../components/NewsTemplate'));
+const ArticlesTemplate = React.lazy(()=>import('../components/ArticlesTemplate'));
 
 function Home(props) {
 
@@ -160,22 +160,22 @@ function Home(props) {
                 <div className="container flex flex-col">
 
                     <h3 className='section__title' data-aos="fade-down" data-aos-duration="1000">
-                        {splitTitle(news.title)}
+                        {splitTitle(articles.title)}
                     </h3>
                     <p className='section__desc' data-aos="fade-down" data-aos-duration="1000">
-                        {news.subtitle}
+                        {articles.subtitle}
                     </p>
                     <a href="" className='main__btn' data-aos="fade-down" data-aos-duration="1000">                        
-                        <span>{news.cta}</span>
+                        <span>{articles.cta}</span>
                         <div>
                             <i className='fas fa-arrow-right'></i>
                         </div>
                     </a>
 
                     <div className="news__grid flex" data-aos="fade-up" data-aos-duration="1000">
-                        {news.newsItems.map((item, key)=>{
+                        {articles.newsItems.map((item, key)=>{
                             return(
-                                <NewsTemplate key={key} item={item}/>
+                                <ArticlesTemplate key={key} item={item}/>
                             )
                         })
 
