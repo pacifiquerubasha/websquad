@@ -80,7 +80,7 @@ function About(props) {
     const handleSubmit = (e) => {
         e.preventDefault();
         // let myForm = document.getElementById("pizzaOrder");
-        let formData = new FormData(e);
+        let formData = new FormData(e.target);
         fetch("/", {
           method: "POST",
           headers: { "Content-Type": "application/x-www-form-urlencoded" },
