@@ -2,7 +2,7 @@ import { images } from "./images";
 
 export const  menuItems = [
     { name: "About", link: "/about" },
-    { name: "Blog", link: "/blogs" },
+    { name: "Blog", link: "/blog" },
     { name: "Jobs", link: "/jobs" },
     { name: "Visualisations", link: "/visualisations" },
     { name: "Matching", link: "/matching" },

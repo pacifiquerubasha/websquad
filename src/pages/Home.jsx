@@ -165,7 +165,7 @@ function Home(props) {
                     <p className='section__desc' data-aos="fade-down" data-aos-duration="1000">
                         {articles.subtitle}
                     </p>
-                    <a href="/blogs" className='main__btn' data-aos="fade-down" data-aos-duration="1000">                        
+                    <a href="/blog" className='main__btn' data-aos="fade-down" data-aos-duration="1000">                        
                         <span>{articles.cta}</span>
                         <div>
                             <i className='fas fa-arrow-right'></i>
