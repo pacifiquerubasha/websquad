@@ -15,6 +15,16 @@ import alu from "../assets/images/alu.png"
 import gcu from "../assets/images/gcu.png"
 import remotive from "../assets/images/remotive.png"
 
+import interview from "../assets/images/interview.jpg"
+import networking from "../assets/images/networking.jpg"
+import remote from "../assets/images/remote.jpg"
+import visualisations from "../assets/images/visualisations.jpg"
+
+import i4dm from "../assets/images/i4dm.png"
+import itsacheckmate from "../assets/images/itsacheckmate.png"
+import keyrock from "../assets/images/keyrock.png"
+import qikserve from "../assets/images/qikserve.png"
+
 export const images = {
     hero, 
     react, 
@@ -30,5 +40,13 @@ export const images = {
     matching,
     alu,
     gcu,
-    remotive
+    remotive,
+    interview,
+    networking,
+    remote,
+    visualisations,
+    i4dm,
+    itsacheckmate,
+    keyrock,
+    qikserve
 }

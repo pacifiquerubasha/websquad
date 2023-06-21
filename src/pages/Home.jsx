@@ -34,7 +34,7 @@ function Home(props) {
                     </h1>
                     <p data-aos="fade-up" data-aos-duration="1000">{hero.subtitle}</p>
 
-                    <a href="" className="main__btn" data-aos="fade-up" data-aos-duration="1000">                        
+                    <a href="/visualisations" className="main__btn" data-aos="fade-up" data-aos-duration="1000">                        
                         <span>{hero.cta}</span>
                         <div>
                             <i className='fas fa-arrow-right'></i>
@@ -102,7 +102,7 @@ function Home(props) {
                             {section2.subtitle}
                         </p>   
                        
-                        <a href="" className="main__btn">                        
+                        <a href="/jobs" className="main__btn">                        
                             <span>
                                 {section2.cta}
                             </span>
@@ -165,7 +165,7 @@ function Home(props) {
                     <p className='section__desc' data-aos="fade-down" data-aos-duration="1000">
                         {articles.subtitle}
                     </p>
-                    <a href="" className='main__btn' data-aos="fade-down" data-aos-duration="1000">                        
+                    <a href="/blogs" className='main__btn' data-aos="fade-down" data-aos-duration="1000">                        
                         <span>{articles.cta}</span>
                         <div>
                             <i className='fas fa-arrow-right'></i>

@@ -162,8 +162,8 @@ function Jobs(props) {
                     </div>
 
                     <div className="hero__content flex flex-col">
-                        <h1>Job Search</h1> 
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque voluptates nam, animi cum deserunt ad.</p> 
+                        <h1>Discover Your Dream Job</h1> 
+                        <p>Explore a Wide Range of Opportunities and Start Your Career Journey Today!</p> 
 
                         <form action="" className='search__form' onSubmit={handleSearchJob}>
                             <input type="text" placeholder="Search Jobs" name='search' onKeyUp={()=> isJobDetails && setIsJobDetails(false)}/>

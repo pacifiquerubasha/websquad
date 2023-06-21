@@ -271,7 +271,7 @@ function Visualisations(props) {
             <main className='main__with__banner'>              
                 <section className="visualisations__hero">
                   <h1>Visualisations</h1>
-                  <p>Here you can find some visualisations of the data we have collected.</p>
+                  <p>Explore our Visualizations Page for captivating data representations and interactive graphics</p>
 
                   <ul className='flex'>
                     {tabs.map((tab, key)=>{

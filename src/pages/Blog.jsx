@@ -23,7 +23,7 @@ function Blog(props) {
 
             <section className="intro flex">
                 <div className="intro__left" data-aos="fade-right" data-aos-duration="1000">
-                    <img src={images.hero} alt="" />
+                    <img src={articles.newsItems[3].image} alt="" />
                 </div>
                 <div className="intro__right" data-aos="fade-left" data-aos-duration="1000">
                     <span>{articles.newsItems[3].author}</span>

@@ -30,7 +30,7 @@ function ContactForm({isContactPage}) {
             <h3 className='section__title' data-aos="fade-down" data-aos-duration="1000">Contact <span className='text-blue'>Us</span> </h3>
             
             <p className='section__desc'>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, quod!
+                Reach Out to Us for Any Inquiries or Assistance
             </p>
 
             {success && (
