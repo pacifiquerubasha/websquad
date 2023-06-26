@@ -13,6 +13,9 @@ import matching from "../assets/images/matching.png"
 import alu from "../assets/images/alu.png"
 import gcu from "../assets/images/gcu.png"
 import remotive from "../assets/images/remotive.png"
+import wamuyu from "../assets/images/wamuyu.jpg"
+import esther from "../assets/images/esther.jpg"
+import sumaya from "../assets/images/sumaya.jpg"
 
 import interview from "../assets/images/interview.jpg"
 import networking from "../assets/images/networking.jpg"
@@ -46,5 +49,8 @@ export const images = {
     i4dm,
     itsacheckmate,
     keyrock,
-    qikserve
+    qikserve,
+    wamuyu,
+    esther,
+    sumaya
 }

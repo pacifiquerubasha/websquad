@@ -45,7 +45,7 @@ function About(props) {
         {
         name: 'Funke Aderoju',
         role: 'Content Writer',
-        image:  images.hero,
+        image:  images.esther,
         linkedin: 'https://www.linkedin.com/in/funke-aderoju/',
         github: '',
         instagram: '',
@@ -54,7 +54,7 @@ function About(props) {
         {
         name: 'Wamuyu Gitonga',
         role: 'Project Manager',
-        image:  images.hero,
+        image:  images.wamuyu,
         linkedin: 'https://www.linkedin.com/in/wamuyu-gitonga/',
         github: '',
         instagram: '',
@@ -63,7 +63,7 @@ function About(props) {
         {
         name: 'Sumaya Abdulramah',
         role: 'Digital News Writer',
-        image:  images.hero,
+        image:  images.sumaya,
         linkedin: 'https://www.linkedin.com/in/sumaya-abdulramah/',
         github: '',
         instagram: '',
