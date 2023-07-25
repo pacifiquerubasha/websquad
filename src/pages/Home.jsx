@@ -43,7 +43,7 @@ function Home(props) {
                 </div>
 
                 <div className="hero__left">
-                    <img src={images.heroillustration} alt=""/>
+                    <img src={images.homePageHero} alt=""/>
                 </div>
 
             </section>
