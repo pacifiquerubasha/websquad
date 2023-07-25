@@ -1,7 +1,7 @@
 import hero from "../assets/images/hero.jpg";
 import react from "../assets/react.svg"
 import error from '../assets/illustrations/error.svg'
-import heroillustration from "../assets/images/heroIllustration.png"
+import heroillustration from "../assets/images/heroillustration.png"
 
 import about from "../assets/images/about.jpg"
 import allan from "../assets/images/allan.jpg"
