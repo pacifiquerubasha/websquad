@@ -31,23 +31,23 @@ export const about = {
     subtitle:"Our platform seamlessly connects you to a vast network of employment opportunities that span across continents, providing access to a world of career possibilities.",
     aboutBoxes : [
         {
-            icon:"fas fa-user",
             box_title:"Diverse Industries",
+            icon:'fas fa-cogs',
             box_content:"Creates opportunities in diverse sectors, allowing you to explore your passion and expertise on a global scale."
         },
         {
-            icon:"fas fa-user",
             box_title:"International Connections",
+            icon:'fas fa-globe',
             box_content:"Forge valuable connections with employers and professionals from around the world."
         },
         {
-            icon:"fas fa-user",
             box_title:"Remote Work",
+            icon:'fas fa-laptop',
             box_content:"Features remote job listings that provide flexibility and the opportunity to work from anywhere."
         },
         {
-            icon:"fas fa-user",
             box_title:"Expatriate Assignments",
+            icon:'fas fa-plane',
             box_content:"Our platform connects you with international organizations seeking talented individuals who are willing to relocate"
         }
     ]
@@ -97,21 +97,21 @@ export const section3 = {
 
     section3Boxes:[
         {
-            icon:"fas fa-user-md",
             title:"Streamlined Job Search",
+            icon:'fas fa-search',
             subtitle:`Simplify your job search process with our intuitive interface. Our platform offers a user-friendly experience, 
             enabling you to effortlessly navigate through job listings, refine your search criteria, and discover 
             relevant opportunities worldwide.`,
         },
         {
-            icon:"fas fa-user-md",
             title:"Extensive Database of Opportunities",
+            icon:'fas fa-database',
             subtitle:` Whether you're seeking local or international employment, our platform provides a wealth of options to 
             explore and apply for, ensuring you have a wide range of opportunities to choose from.`,
         },
         {
-            icon:"fas fa-user-md",
             title:"Enhanced Job Insights",
+            icon:'fas fa-signal',
             subtitle:`Our platform provides comprehensive information to help you make informed decisions about which
             opportunities align with your skills, interests, and career goals.`,
         }

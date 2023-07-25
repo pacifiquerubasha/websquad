@@ -16,58 +16,89 @@ function About(props) {
 
     const teamMembers = [
         {
-        name: 'Pacifique Rubasha',
-        role: 'Frontend Developer',
-        image: images.pac,
-        linkedin: 'https://www.linkedin.com/in/pacifiquerubasha/',
-        github: '',
-        instagram: '',
-        facebook: '',
+            name: 'Pacifique Rubasha',
+            role: 'Frontend Developer',
+            image: images.pac,
+            linkedin: 'https://www.linkedin.com/in/pacifiquerubasha/',
+            github: '',
+            instagram: '',
+            facebook: '',
+            more:{
+                interests: ['Frontend Dev', 'Mobile Dev', 'Cybersecurity'],
+                summary:'Aspiring student frontend dev from Congo passionate about React, creating delightful web experiences with code. Eager to learn and grow. '
+            }
+        },
+
+        {
+            name: 'Emmanuel Okorwoit',
+            role: 'Project Manager',
+            image:  images.emmanuel,
+            linkedin: 'https://www.linkedin.com/in/emmanuel-okorwoit/',
+            github: '',
+            instagram: '',
+            facebook: '',
+            more:{
+                interests: ['Research', 'Big Data', 'Startups'],
+                summary:'Ambitious kenyan student exploring Research, Big Data, and Startups. Eager to innovate and make an impact in the tech world.'
+
+            }
+
         },
         {
-        name: 'Emmanuel Okorwoit',
-        role: 'Project Manager',
-        image:  images.hero,
-        linkedin: 'https://www.linkedin.com/in/emmanuel-okorwoit/',
-        github: '',
-        instagram: '',
-        facebook: '',
+            name: 'Hallan Warigia',
+            role: 'Backend Developer',
+            image:  images.allan,
+            linkedin: 'https://www.linkedin.com/in/hallan-warigia/',
+            github: '',
+            instagram: '',
+            facebook: '',
+            more:{
+                interests: ['Backend Dev', 'Mobile Dev', 'Cybersecurity'],
+                summary:'Aspiring student backend dev from Kenya passionate about Node.js, creating delightful web experiences with code. Eager to learn and grow. '
+            }
+           
         },
         {
-        name: 'Hallan Warigia',
-        role: 'Backend Developer',
-        image:  images.allan,
-        linkedin: 'https://www.linkedin.com/in/hallan-warigia/',
-        github: '',
-        instagram: '',
-        facebook: '',
+            name: 'Funke Aderoju',
+            role: 'Content Writer',
+            image:  images.esther,
+            linkedin: 'https://www.linkedin.com/in/funke-aderoju/',
+            github: '',
+            instagram: '',
+            facebook: '',
+            more:{
+                interests: ['Content Writing', 'Research', 'Startups'],
+                summary:'Ambitious Nigerian student exploring Content Writing, Research, and Startups. Eager to innovate and make an impact in the tech world.'
+            }
         },
-        {
-        name: 'Funke Aderoju',
-        role: 'Content Writer',
-        image:  images.esther,
-        linkedin: 'https://www.linkedin.com/in/funke-aderoju/',
-        github: '',
-        instagram: '',
-        facebook: '',
+
+        {            
+            name: 'Wamuyu Gitonga',
+            role: 'Project Manager',
+            image:  images.wamuyu,
+            linkedin: 'https://www.linkedin.com/in/wamuyu-gitonga/',
+            github: '',
+            instagram: '',
+            facebook: '',
+            more:{
+                interests: ['Project Management', 'Research', 'Startups'],
+                summary:'Ambitious Kenyan student exploring Project Management, Research, and Startups. Eager to innovate and make an impact in the tech world.'
+            }
+
         },
+
         {
-        name: 'Wamuyu Gitonga',
-        role: 'Project Manager',
-        image:  images.wamuyu,
-        linkedin: 'https://www.linkedin.com/in/wamuyu-gitonga/',
-        github: '',
-        instagram: '',
-        facebook: '',
-        },
-        {
-        name: 'Sumaya Abdulramah',
-        role: 'Digital News Writer',
-        image:  images.sumaya,
-        linkedin: 'https://www.linkedin.com/in/sumaya-abdulramah/',
-        github: '',
-        instagram: '',
-        facebook: '',
+            name: 'Sumaya Abdulramah',
+            role: 'Digital News Writer',
+            image:  images.sumaya,
+            linkedin: 'https://www.linkedin.com/in/sumaya-abdulramah/',
+            github: '',
+            instagram: '',
+            facebook: '',
+            more:{
+                interests: ['Digital News Writing', 'Research', 'Startups'],
+                summary:'Ambitious Kenyan student exploring Digital News Writing, Research, and Startups. Eager to innovate and make an impact in the tech world.'
+            }
         },
         ];
     
@@ -139,7 +170,7 @@ function About(props) {
                     </p>
                     <div className="service flex" data-aos="zoom-in" data-aos-duration="1000">
                         <div>
-                            <i className='fas fa-user'></i>
+                            <i className='fas fa-bolt'></i>
                             <h5>Job Search Assistance</h5>
                             <p>Under this service, we provide various tools and resources to assist job seekers in their global career exploration. This includes advanced search filters, personalized job recommendations,</p>
 
@@ -153,7 +184,7 @@ function About(props) {
                             <img src={images.hero} alt='' loading='lazy'/>
                         </div>
                         <div>
-                            <i className='fas fa-user'></i>
+                            <i className='fas fa-globe'></i>
                             <h5>International Networking</h5>
                             <p>Through our platform, job seekers can expand their professional network, gain insights from industry experts, and build meaningful connections that can enhance their career prospects.</p>
 
@@ -161,7 +192,7 @@ function About(props) {
                     </div>
                     <div className="service flex"  data-aos="zoom-in" data-aos-duration="1000">
                         <div>
-                            <i className='fas fa-user'></i>
+                            <i className='fas fa-bar-chart'></i>
                             <h5>Industry Insights</h5>
                             <p>Our platform provides job seekers with valuable industry insights and market research to stay informed about global job trends, salary expectations, and in-demand skills.</p>
 
@@ -197,6 +228,20 @@ function About(props) {
                                         <h5>{member.name}</h5>
                                         <p>{member.role}</p>
                                     </div>
+
+                                    <div className='member__more flex flex-col'>
+                                        <h5>{member.name}</h5>
+                                        <p>
+                                            {member.more.summary}
+                                        </p>
+                                        <div className='flex flex-col member__interests'>
+                                            <span>Interests</span>
+                                            <ul>
+                                                {member.more.interests.map((interest, i)=><li key={i}>{interest}</li>)}
+                                            </ul>
+                                        </div>
+                                    </div>
+
                                 </div>
                             ))
                         }

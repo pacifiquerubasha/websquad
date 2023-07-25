@@ -198,7 +198,7 @@ function Home(props) {
                        {cta.desc}
                     </p>  
 
-                    <a href="" className='main__btn'>                        
+                    <a href="/about" className='main__btn'>                        
                         <span>{cta.cta}</span>
                         <div>
                             <i className='fas fa-arrow-right'></i>

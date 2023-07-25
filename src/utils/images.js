@@ -1,7 +1,7 @@
 import hero from "../assets/images/hero.jpg";
 import react from "../assets/react.svg"
 import error from '../assets/illustrations/error.svg'
-import heroillustration from "../assets/illustrations/hero.svg"
+import heroillustration from "../assets/images/main-hero.jpg"
 
 import about from "../assets/images/about.jpg"
 import allan from "../assets/images/allan.jpg"
@@ -16,6 +16,7 @@ import remotive from "../assets/images/remotive.png"
 import wamuyu from "../assets/images/wamuyu.png"
 import esther from "../assets/images/esther.png"
 import sumaya from "../assets/images/sumaya.png"
+import emmanuel from "../assets/images/emmanuel.jpg"
 
 import interview from "../assets/images/interview.jpg"
 import networking from "../assets/images/networking.jpg"
@@ -52,5 +53,6 @@ export const images = {
     qikserve,
     wamuyu,
     esther,
-    sumaya
+    sumaya,
+    emmanuel
 }

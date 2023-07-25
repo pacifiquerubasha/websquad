@@ -50,6 +50,7 @@
 
     .news__grid{
         flex-wrap: wrap;
+        width: 100%;
     }
 
     section.testimonials .container {
