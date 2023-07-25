@@ -1141,17 +1141,20 @@ header:has(~.main__with__banner) a{
 
 }
 
-.member:hover .member__more{
+.member:has(img:hover) .member__more,
+.member:has(.member__more:hover) .member__more{
     width: 100%;
     height: 100%;
     opacity: 1;
     visibility: visible;
 }
 
-.member:hover .member__info{
+.member:has(img:hover) .member__info,
+.member:has(.member__more:hover) .member__info{
     opacity: 0;
     transform: translate(-50%, 2rem);
 }
+
 
 
 .member__more h5{
