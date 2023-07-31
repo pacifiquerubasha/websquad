@@ -43,10 +43,10 @@ function CategoryDistributionByLocation({data}) {
 
     return (
         <>
-        <form onSubmit={handleSearch} className='search__loc--form'>
+        {/* <form onSubmit={handleSearch} className='search__loc--form'>
             <input type="search" name="searchLocation" id="location" value={searchKeyword} onChange={(e)=>setSearchKeyword(e.target.value)} />
             <button type="submit">Search</button>
-        </form>
+        </form> */}
 
         <div className='viz__pies flex'>
             {dataToUse.map((datum)=>{

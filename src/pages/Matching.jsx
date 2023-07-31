@@ -10,6 +10,7 @@ import { useRef } from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import FixedContact from '../components/FixedContact';
+import { useAutoAnimate } from '@formkit/auto-animate/react';
 function Matching(props) {
 
     const submenuItems = [
@@ -150,37 +151,88 @@ function Matching(props) {
             <p>Please note that the provided code snippet assumes you are using JavaScript with a framework like React. Adjustments may be needed based on your specific development environment and requirements.</p>
             `,
             code:`
+
+            //Location Distribution state
+            const [locationDistribution, setLocationDistribution] = useState([]);
+
+            /**
+             * Helper to match country data to format required by the chloropeth
+             * @param {*} countryName 
+             * @returns country's alpha3 code
+             */
+            const getCountryCode = (countryName) => {
+                // console.log(countries.all[10])
+                const country = countries.all.find(
+                  (country) => {
+                    if(countryName === "USA" && country.name === "United States") return true;
+                    if(countryName === "UK" && country.name === "United Kingdom") return true;
+          
+                    return country.name.toLowerCase() === countryName.toLowerCase() || country.alpha2 === countryName.toLowerCase()
+                  }
+                );
+              
+                return country ? country.alpha3 : "Not Found";
+              };
+
+            /**
+             * Helper to get the distribution of job types
+             * @param {*} jobs 
+             * @returns location distribution
+             */
+            const getLocationDistribution = (jobs)=>{
+                const locationDistribution = jobs.reduce((distribution, job) => {
+                    const locations = job.candidate_required_location.split(',').map((location) => location.trim());
+                    locations.forEach((location) => {
+                      if (!distribution[location]) {
+                        distribution[location] = 0;
+                      }
+                      distribution[location]++;
+                    });
+                    return distribution;
+                  }, {});
+        
+        
+                return Object.entries(locationDistribution).map((item)=>{ return {id:getCountryCode(item[0]), value:item[1]}});
+            }
+
+            /**
+             * Fetching of data and use of helpers to handle manipulations
+             */
             const fetchJobs = async()=>{
                 const api = "https://remotive.com/api/remote-jobs";
                 
                 setIsLoading(true)
                 const res = await fetch(api);
-    
+        
                 if(res.ok){
                     const data = await res.json();
                     if(data){
                         const testData = data.jobs;
                         setJobs(testData)
-                        setJobsToShow(testData)
-                        setIsLoading(false)
-                        const tempFilters = testData.length > 0 ? Array.from(new Set(testData.map((job)=>{
-                            return job.tags
-                          }).flat(1))) : [];
+
+                        const tempJobTypeDistByCat = getJobTypeDistByCategory(testData);
+                        const tempCategoryTrends = getCategoriesDailyData(testData);
+                        const tempLocationDistribution = getLocationDistribution(testData);
+                        const tempCategoryDistributionByLocation = getCategoryDistributionByLocation(testData);
+
+                
+                        setJobTypeDistByCategory(tempJobTypeDistByCat)
+                        setCategoryTrends(tempCategoryTrends)
+                        setLocationDistribution(tempLocationDistribution);
+                        setCategoryDistributionByLocation(tempCategoryDistributionByLocation)
                         
-                        setFilters(tempFilters);
-                        setFiltersToShow(tempFilters);
-    
-                        console.log(testData)
-    
+
+                        setCategories(Array.from(new Set(testData.map((job)=>job.category))))
+                        setUniqueJobs(Array.from(new Set(testData.map((job)=>job.title))))
                     }
-    
-                    else setIsLoading(false)
-    
+                    setIsLoading(false)
                 }
-    
+
                 else setIsLoading(false)
             }
-    
+
+            //Data Usage
+            <Chloropeth data={locationDistribution}/>
             `
          }
     ]
@@ -194,6 +246,97 @@ function Matching(props) {
         topContentRef.current.scrollIntoView({behavior: 'smooth'});
     }
 
+    const [isMainSource, setIsMainSource] = useState(true);
+
+    const dataFields = `
+    {
+        "data": [
+          {
+            "slug": "stagiaire-audit-des-systemes-dinformation-lille-mai-2022-hf-mazars-275214",
+            "company_name": "MAZARS",
+            "title": "Stagiaire Audit des systèmes d'information - Lille - Mai 2022 (H/F)",
+            "description": "",
+            "remote": false,
+            "url": "https://arbeitnow.com/view/stagiaire-audit-des-systemes-dinformation-lille-mai-2022-hf-mazars-275214",
+            "tags": [
+              "Accounting",
+              "accounting/auditing"
+            ],
+            "job_types": [
+              "Internship",
+              "full time"
+            ],
+            "location": "Villeneuve-d'Ascq",
+            "created_at": 1638006745
+            }
+        ]
+    }`;
+
+    const dataUsage = `
+
+    /**
+     * Data Manipulation
+     * @param {*} tags 
+     * @returns 
+     */
+    const handleCountTags = (tags)=>{
+
+        const countObj = tags.reduce((obj, element) => {
+            if (obj[element]) {
+              obj[element]++;
+            } else {
+              obj[element] = 1;
+            }
+            return obj;
+          }, {});
+
+        return Object.entries(countObj).map(([item, count]) => ({ text: item, value: count }));  
+    }
+
+    /**
+     * Fetching of data and use of helpers to handle manipulations
+     */
+    const fetchFromSecondSource = async()=>{
+        const api = "https://www.arbeitnow.com/api/job-board-api";
+        
+        setIsLoading(true)
+        var requestOptions = {
+          method: 'GET',
+          redirect: 'follow'
+        };
+        
+        const res = await fetch(api, requestOptions);
+
+        if(res){
+          if(res.ok){
+            const data = await res.json();
+            if(data){
+              const dataList = data.data;
+              const tags = dataList.map((job)=>job.tags).flat(1);
+              const slugs = dataList.map((job)=>{
+                const slug = job.slug.split("-");
+                slug.pop()
+                return slug
+              }).flat(1)
+              setTagsData(handleCountTags(tags.concat(slugs)))
+            }
+          }
+
+          setIsLoading(false)
+        }
+    }
+
+    const fontSizeMapper = word => Math.log2(word.value) * 5;
+    //Usage
+    <WordCloud 
+        data={data} 
+        spiral="rectangular"
+        rotate={(word) => 0}
+        fontSize={fontSizeMapper}
+    />
+    `
+
+    const [matchParent] = useAutoAnimate();
 
     return (
         <>
@@ -201,52 +344,113 @@ function Matching(props) {
         <Header page="Matching"/>
         <main className='main__contentful'>
             <div className="container flex flex-col">
-                <h1>Matching</h1>
+                <div className='flex justify-between items-center matching__title '>
+                    <h1 className='font-500'>{isMainSource ? "Main" : "Secondary"} Data Source</h1>
+                    <button onClick={()=>setIsMainSource((prev)=>!prev)} className='main__btn no-border cursor-pointer'>View {isMainSource ? "secondary" : "main"} source</button>
+                </div>
+                {isMainSource &&
                 <div className="illustration" data-aos="fade-up" data-aos-duration="1000">
                     <img src={images.matching} alt="Matching"/>
-                </div>
+                </div>}
 
                 
 
                 <div ref={topContentRef}></div>
-                <div className="description" data-aos="fade-up" data-aos-duration="1000">                    
-                        {matchingContent.map((item, index)=>{
-                            return (
-                                <>
-                                    {currentContentIndex === index && 
-                                    
+                <div ref={matchParent} className="description" data-aos="fade-up" data-aos-duration="1000">  
+
+                    {
+                        isMainSource ?
+                        <>
+                            {matchingContent.map((item, index)=>{
+                                return (
                                     <>
-                                        <h2>{item.title}</h2>
-                                        {item.code &&
-                                        <div className='code__bloc'>
-                                            <SyntaxHighlighter language="javascript" style={docco}>
-                                                {item.code}
-                                            </SyntaxHighlighter>
-                                            <p><em>{item.title}</em></p>
-                                        </div>}
+                                        {currentContentIndex === index && 
+                                        
+                                        <>
+                                            <h2>{item.title}</h2>
+                                            {item.code &&
+                                            <div className='code__bloc'>
+                                                <SyntaxHighlighter language="javascript" style={docco}>
+                                                    {item.code}
+                                                </SyntaxHighlighter>
+                                                <p><em>{item.title}</em></p>
+                                            </div>}
 
-                                        <MatchingTemplate description={item.content}/>
-                                            
-                                        <div className='flex controls'>
-                                            {index > 0 && <a className='prev__link' onClick={()=>handleChangeContent(index-1)}>&laquo;&nbsp;<div>{matchingContent[index-1]?.title}</div> </a>}
-                                            {index+1 < matchingContent.length && <a className='next__link' onClick={()=>handleChangeContent(index+1)}><div>{matchingContent[index+1]?.title}</div> &nbsp;&raquo;</a>}
-                                        </div>
+                                            <MatchingTemplate description={item.content}/>
+                                                
+                                            <div className='flex controls'>
+                                                {index > 0 && <a className='prev__link' onClick={()=>handleChangeContent(index-1)}>&laquo;&nbsp;<div>{matchingContent[index-1]?.title}</div> </a>}
+                                                {index+1 < matchingContent.length && <a className='next__link' onClick={()=>handleChangeContent(index+1)}><div>{matchingContent[index+1]?.title}</div> &nbsp;&raquo;</a>}
+                                            </div>
 
+                                        </>
+                                        
+                                        }
+                                        
+                                    
                                     </>
-                                    
-                                    }
-                                    
-                                
-                                </>
-                            )
-                        })
+                                )
+                            })
 
-                        }
+                            }                        
+                        </>    :
+                        
+                        <div className='matching__desc'>
+                            <h2 className='matching__title'>Data Source</h2>
+                            <p>
+                                The data appears to be sourced from an API provided by "Arbeitnow," a company based in Berlin that helps other companies hire candidates with visa sponsorship, four-day work weeks, and remote opportunities. The API seems to be a job board API, which allows users to access job postings and related information. The API endpoint used to fetch the data is <a href="https://www.arbeitnow.com/api/job-board-api" target='_blank'>"https://www.arbeitnow.com/api/job-board-api."</a> 
+                            </p>
+                            <h2 className='matching__title'>Data Fields</h2>
+                            <div className='code__bloc'>
+                                <SyntaxHighlighter language="javascript" style={docco}>
+                                    {dataFields}
+                                </SyntaxHighlighter>
+                            </div>
+                            <p>
+                                The sample data response contains the following fields for each job posting:
+                            </p>
+                            <ul>
+                                <li> <strong>slug</strong>: A unique identifier for the job posting.</li>
+                                <li> <strong>company_name</strong>: The name of the company offering the job.</li>
+                                <li> <strong>title</strong>: The job title or position.</li>
+                                <li> <strong>description</strong>: The job description (which is an empty string in this case, but would typically contain details about the job).</li>
+                                <li> <strong>remote</strong>: A boolean indicating whether the job offers remote opportunities (true/false).</li>
+                                <li> <strong>url</strong>: The URL to view the complete details of the job posting.</li>
+                                <li> <strong>tags</strong>: An array of tags associated with the job, such as the job category or related keywords.</li>
+                                <li> <strong>job_types</strong>:  An array of job types, such as "Internship" or "Full-time."</li>
+                                <li> <strong>location</strong>: The location of the job.</li>
+                                <li> <strong>created_at</strong>: The timestamp indicating when the job posting was created.</li>
+                            </ul>
+                            <h2 className='matching__title'>Data Usage in Application</h2>
+                            <div className='code__bloc'>
+                                <SyntaxHighlighter language="javascript" style={docco}>
+                                    {dataUsage}
+                                </SyntaxHighlighter>
+                            </div>
+                            <p>
+                                Based on the provided code snippet, it seems that the data is being used to generate a word cloud, which visually represents the frequency of different tags and slugs (parts of the job URLs) associated with the job postings. The word cloud appears to be constructed from the combined tags and slugs extracted from the sample data.
+                                <br/><br/>The word cloud generation process involves the following steps:
+                            </p>
+                            <ul>
+                                <li>Fetching the data from the API endpoint using the fetch function.</li>
+                                <li>Extracting tags and slugs from each job posting and creating separate arrays.</li>
+                                <li>Merging the tags and slugs arrays into a single array.</li>
+                                <li>Counting the frequency of each tag and slug using a function called handleCountTags.</li>
+                                <li>The resulting data, containing tag and slug frequencies, is then used to generate the word cloud visualization.</li>
+                                
+                            </ul>
+                            <p>
+                                However, the specific details of how the word cloud is being generated and displayed are not included in the code snippet, so further information would be required to understand the exact implementation.
+                            </p>
+                        
+                        </div>
+                    }
+
 
                 </div>
             </div>
 
-            <div className="fixedSubmenu">
+            {isMainSource && <div className="fixedSubmenu">
                 {submenuItems.map((item, index)=>{
                     return (
                     <div onClick={()=>handleChangeContent(index)} className={`${index == currentContentIndex && "current__submenu--item"}`}>
@@ -258,7 +462,7 @@ function Matching(props) {
 
                 }
                
-            </div>
+            </div>}
             
         </main>
 

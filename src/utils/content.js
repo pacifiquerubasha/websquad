@@ -5,7 +5,7 @@ export const  menuItems = [
     { name: "Blog", link: "/blog" },
     { name: "Jobs", link: "/jobs" },
     { name: "Visualisations", link: "/visualisations" },
-    { name: "Matching", link: "/matching" },
+    { name: "APIs", link: "/apis" },
     { name: "Contact", link: "/contact" }
 ];
 

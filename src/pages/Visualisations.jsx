@@ -28,6 +28,11 @@ function Visualisations(props) {
 
     const [jobs, setJobs] = useState([]);
 
+    /**
+     * 
+     * @param {*} countryName 
+     * @returns 
+     */
     const getCountryCode = (countryName) => {
       // console.log(countries.all[10])
       const country = countries.all.find(
@@ -43,6 +48,11 @@ function Visualisations(props) {
     };
     
 
+    /**
+     * 
+     * @param {*} tags 
+     * @returns 
+     */
     const handleCountTags = (tags)=>{
 
         const countObj = tags.reduce((obj, element) => {
@@ -163,6 +173,11 @@ function Visualisations(props) {
       return categoryTrends;
     }
 
+    /**
+     * 
+     * @param {*} jobs 
+     * @returns 
+     */
     const getLocationDistribution = (jobs)=>{
         const locationDistribution = jobs.reduce((distribution, job) => {
             const locations = job.candidate_required_location.split(',').map((location) => location.trim());
@@ -202,6 +217,7 @@ function Visualisations(props) {
 
         document.title = "Visualizations | JobMagnetix"
        
+        
         const fetchJobs = async()=>{
             const api = "https://remotive.com/api/remote-jobs";
             
@@ -214,15 +230,12 @@ function Visualisations(props) {
                     const testData = data.jobs;
                     setJobs(testData)
 
-                    const tempTags = handleCountTags(testData.map((job)=>job.tags).flat(1));
                     const tempJobTypeDistByCat = getJobTypeDistByCategory(testData);
                     const tempCategoryTrends = getCategoriesDailyData(testData);
                     const tempLocationDistribution = getLocationDistribution(testData);
                     const tempCategoryDistributionByLocation = getCategoryDistributionByLocation(testData);
 
-                    console.log("AD", tempTags)
              
-                    setTagsData(tempTags)
                     setJobTypeDistByCategory(tempJobTypeDistByCat)
                     setCategoryTrends(tempCategoryTrends)
                     setLocationDistribution(tempLocationDistribution);
@@ -238,6 +251,40 @@ function Visualisations(props) {
             else setIsLoading(false)
         }
 
+        const fetchFromSecondSource = async()=>{
+            const api = "https://www.arbeitnow.com/api/job-board-api";
+            
+            setIsLoading(true)
+            var requestOptions = {
+              method: 'GET',
+              redirect: 'follow'
+            };
+            
+            const res = await fetch(api, requestOptions);
+
+            if(res){
+              if(res.ok){
+                const data = await res.json();
+                if(data){
+                  const dataList = data.data;
+                  const tags = dataList.map((job)=>job.tags).flat(1);
+                  const slugs = dataList.map((job)=>{
+                    const slug = job.slug.split("-");
+                    slug.pop()
+                    return slug
+                  }).flat(1)
+                  console.log(slugs)
+                  setTagsData(handleCountTags(tags.concat(slugs)))
+                  // console.log(dataList)
+                }
+              }
+
+
+              setIsLoading(false)
+            }
+        }
+
+        fetchFromSecondSource();
         fetchJobs();
 
         
