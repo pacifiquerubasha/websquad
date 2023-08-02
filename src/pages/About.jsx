@@ -19,13 +19,18 @@ function About(props) {
             name: 'Pacifique Rubasha',
             role: 'Frontend Developer',
             image: images.pac,
-            linkedin: 'https://www.linkedin.com/in/pacifiquerubasha/',
-            github: '',
+            linkedin: 'www.linkedin.com/in/pacifique-rubasha-444b90206',
+            github: 'https://github.com/pacifiquerubasha',
             instagram: '',
             facebook: '',
             more:{
                 interests: ['Frontend Dev', 'Mobile Dev', 'Cybersecurity'],
-                summary:'Aspiring student frontend dev from Congo passionate about React, creating delightful web experiences with code. Eager to learn and grow. '
+                summary:`
+                Passionate React frontend developer from Congo, eager to create delightful web experiences. 
+                Committed to continuous learning and growth. Driven to make a positive impact through coding. 
+                Ready to contribute skills and creativity to meaningful projects. 
+                Open to collaborative opportunities in the web development realm.
+                `
             }
         },
 
@@ -62,13 +67,19 @@ function About(props) {
             name: 'Funke Aderoju',
             role: 'Content Writer',
             image:  images.esther,
-            linkedin: 'https://www.linkedin.com/in/funke-aderoju/',
-            github: '',
-            instagram: '',
+            linkedin: 'https://mu.linkedin.com/in/funke-aderoju-856b85215',
+            github: 'https://github.com/FunkeEsther',
+            instagram: 'https://instagram.com/fu_esther?igshid=OGQ5ZDc2ODk2ZA==',
             facebook: '',
             more:{
-                interests: ['Content Writing', 'Research', 'Startups'],
-                summary:'Ambitious Nigerian student exploring Content Writing, Research, and Startups. Eager to innovate and make an impact in the tech world.'
+                interests: ['Environmental Sustainability',`Gender Equality and Women's Rights Advocacy`,`Women's Health and Wellness`],
+                summary:`
+                I am Funke Aderoju, a passionate computer science student from Nigeria, with a love for coding. 
+                My mission is to inspire women to join the tech industry, bridging the gender gap in technology 
+                through advocacy and empowering initiatives. Eager to contribute my skills to create an inclusive
+                 and innovative digital world.
+
+                `
             }
         },
 
